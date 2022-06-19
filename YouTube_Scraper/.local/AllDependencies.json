@@ -8644,15 +8644,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jrpete\\.nuget\\packages\\": {}
+    "C:\\Users\\jepeterson\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "YouTube_Scraper",
       "projectName": "YouTube_Scraper",
-      "projectPath": "C:\\Users\\jrpete\\Documents\\UiPath\\Personal_Use_Automation\\YouTube_Scraper\\.local",
-      "packagesPath": "C:\\Users\\jrpete\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jrpete\\Documents\\UiPath\\Personal_Use_Automation\\YouTube_Scraper\\.local"
+      "projectPath": "C:\\Users\\jepeterson\\UiPath\\Udacity_YouTube_Scraper_Automation\\YouTube_Scraper\\.local",
+      "packagesPath": "C:\\Users\\jepeterson\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jepeterson\\UiPath\\Udacity_YouTube_Scraper_Automation\\YouTube_Scraper\\.local"
     },
     "frameworks": {
       "net461": {
@@ -8683,7 +8683,7 @@
             "version": "[21.10.3, 21.10.3]"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\jrpete\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\jepeterson\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
       }
     },
     "runtimes": {
