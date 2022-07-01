@@ -4681,6 +4681,7 @@
       "path": "closedxml/0.87.1",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "closedxml.0.87.1.nupkg.sha512",
         "closedxml.nuspec",
         "lib/net35/ClosedXML.dll",
@@ -4717,6 +4718,7 @@
       "path": "documentformat.openxml/2.5.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "documentformat.openxml.2.5.0.nupkg.sha512",
         "documentformat.openxml.nuspec",
         "lib/DocumentFormat.OpenXml.dll"
@@ -4825,6 +4827,7 @@
       "path": "google.apis.gmail.v1/1.43.0.1859",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "LICENSE",
         "google.apis.gmail.v1.1.43.0.1859.nupkg.sha512",
         "google.apis.gmail.v1.nuspec",
@@ -4851,6 +4854,7 @@
       "path": "google.apis.peopleservice.v1/1.43.0.1876",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "LICENSE",
         "google.apis.peopleservice.v1.1.43.0.1876.nupkg.sha512",
         "google.apis.peopleservice.v1.nuspec",
@@ -5962,6 +5966,7 @@
       "path": "newtonsoft.json/11.0.2",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "LICENSE.md",
         "lib/net20/Newtonsoft.Json.dll",
         "lib/net20/Newtonsoft.Json.xml",

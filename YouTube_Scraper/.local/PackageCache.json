@@ -10,18 +10,18 @@
         "C:\\Users\\jepeterson\\.nuget\\packages\\csvhelper\\16.0.0\\lib/net45/CsvHelper.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\documentformat.openxml\\2.5.0\\lib/DocumentFormat.OpenXml.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\microsoft.visualstudio.ole.interop\\16.7.30328.74\\lib/net45/Microsoft.VisualStudio.OLE.Interop.dll",
+        "C:\\Users\\jepeterson\\.nuget\\packages\\npoi\\2.4.1\\lib/net45/NPOI.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\npoi\\2.4.1\\lib/net45/NPOI.OOXML.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\npoi\\2.4.1\\lib/net45/NPOI.OpenXml4Net.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\npoi\\2.4.1\\lib/net45/NPOI.OpenXmlFormats.dll",
-        "C:\\Users\\jepeterson\\.nuget\\packages\\npoi\\2.4.1\\lib/net45/NPOI.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\sharpziplib\\1.2.0\\lib/net45/ICSharpCode.SharpZipLib.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\system.valuetuple\\4.5.0\\lib/net461/System.ValueTuple.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.excel.activities\\2.11.4\\lib/net461/Microsoft.Office.Interop.Excel.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.excel.activities\\2.11.4\\lib/net461/Microsoft.Vbe.Interop.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.excel.activities\\2.11.4\\lib/net461/Office.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.excel.activities\\2.11.4\\lib/net461/UiPath.Excel.Activities.Design.dll",
-        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.excel.activities\\2.11.4\\lib/net461/UiPath.Excel.Activities.Package.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.excel.activities\\2.11.4\\lib/net461/UiPath.Excel.Activities.dll",
+        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.excel.activities\\2.11.4\\lib/net461/UiPath.Excel.Activities.Package.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.excel.activities\\2.11.4\\lib/net461/UiPath.Excel.dll"
       ],
       "Path": "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.excel.activities\\2.11.4"
@@ -44,20 +44,20 @@
         "C:\\Users\\jepeterson\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\lib/net461/System.Threading.Tasks.Extensions.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\system.valuetuple\\4.5.0\\lib/net461/System.ValueTuple.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.cefsharpbundle\\1.6.0\\lib/net452/CefSharp.BrowserSubprocess.Core.dll",
-        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.cefsharpbundle\\1.6.0\\lib/net452/CefSharp.Core.Runtime.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.cefsharpbundle\\1.6.0\\lib/net452/CefSharp.Core.dll",
-        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.cefsharpbundle\\1.6.0\\lib/net452/CefSharp.Wpf.dll",
+        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.cefsharpbundle\\1.6.0\\lib/net452/CefSharp.Core.Runtime.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.cefsharpbundle\\1.6.0\\lib/net452/CefSharp.dll",
-        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.cefsharpbundle\\1.6.0\\lib/net452/UiPath.CefSharpBundle.dll",
+        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.cefsharpbundle\\1.6.0\\lib/net452/CefSharp.Wpf.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.cefsharpbundle\\1.6.0\\lib/net452/chrome_elf.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.cefsharpbundle\\1.6.0\\lib/net452/d3dcompiler_47.dll",
+        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.cefsharpbundle\\1.6.0\\lib/net452/libcef.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.cefsharpbundle\\1.6.0\\lib/net452/libEGL.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.cefsharpbundle\\1.6.0\\lib/net452/libGLESv2.dll",
-        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.cefsharpbundle\\1.6.0\\lib/net452/libcef.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.cefsharpbundle\\1.6.0\\lib/net452/msvcp140.dll",
+        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.cefsharpbundle\\1.6.0\\lib/net452/UiPath.CefSharpBundle.dll",
+        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.cefsharpbundle\\1.6.0\\lib/net452/vcruntime140.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.cefsharpbundle\\1.6.0\\lib/net452/swiftshader/libEGL.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.cefsharpbundle\\1.6.0\\lib/net452/swiftshader/libGLESv2.dll",
-        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.cefsharpbundle\\1.6.0\\lib/net452/vcruntime140.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.form.activities\\1.9.1\\lib/net461/System.Resources.Extensions.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.form.activities\\1.9.1\\lib/net461/UiPath.Callout.Activity.Design.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.form.activities\\1.9.1\\lib/net461/UiPath.Callout.Activity.dll",
@@ -66,8 +66,8 @@
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.form.activities\\1.9.1\\lib/net461/UiPath.Form.Activities.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.formactivitylibrary\\1.9.1\\lib/net461/NamedPipeWrapper.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.formactivitylibrary\\1.9.1\\lib/net461/UiPath.Form.ActivityLibrary.dll",
-        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.formactivitylibrary\\1.9.1\\lib/net461/UiPath.Form.Host.Local.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.formactivitylibrary\\1.9.1\\lib/net461/UiPath.Form.dll",
+        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.formactivitylibrary\\1.9.1\\lib/net461/UiPath.Form.Host.Local.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.formactivitylibrary\\1.9.1\\lib/net461/UiPath.OutOfProcessUi.Common.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.formactivitylibrary.contracts\\1.9.1\\lib/net461/UiPath.Form.ActivityLibrary.Contracts.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.telemetry.client\\1.5.3\\lib/net461/TelemetryClient.dll"
@@ -80,10 +80,10 @@
         "Version": "1.12.2"
       },
       "Assemblies": [
-        "C:\\Users\\jepeterson\\.nuget\\packages\\google.apis\\1.43.0\\lib/net45/Google.Apis.PlatformServices.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\google.apis\\1.43.0\\lib/net45/Google.Apis.dll",
-        "C:\\Users\\jepeterson\\.nuget\\packages\\google.apis.auth\\1.43.0\\lib/net45/Google.Apis.Auth.PlatformServices.dll",
+        "C:\\Users\\jepeterson\\.nuget\\packages\\google.apis\\1.43.0\\lib/net45/Google.Apis.PlatformServices.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\google.apis.auth\\1.43.0\\lib/net45/Google.Apis.Auth.dll",
+        "C:\\Users\\jepeterson\\.nuget\\packages\\google.apis.auth\\1.43.0\\lib/net45/Google.Apis.Auth.PlatformServices.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\google.apis.calendar.v3\\1.43.0.1872\\lib/net45/Google.Apis.Calendar.v3.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\google.apis.core\\1.43.0\\lib/net45/Google.Apis.Core.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\google.apis.gmail.v1\\1.43.0.1859\\lib/net45/Google.Apis.Gmail.v1.dll",
@@ -123,8 +123,8 @@
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.mail.activities\\1.12.2\\lib/net461/Microsoft.Office.Interop.Word.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.mail.activities\\1.12.2\\lib/net461/Office.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.mail.activities\\1.12.2\\lib/net461/UiPath.Mail.Activities.Design.dll",
-        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.mail.activities\\1.12.2\\lib/net461/UiPath.Mail.Activities.Package.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.mail.activities\\1.12.2\\lib/net461/UiPath.Mail.Activities.dll",
+        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.mail.activities\\1.12.2\\lib/net461/UiPath.Mail.Activities.Package.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.mail.activities\\1.12.2\\lib/net461/UiPath.Mail.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.mail.activities\\1.12.2\\lib/net461/UiPath.MainSessionServer.Shared.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.platform\\21.10.0\\lib/net461/UiPath.Platform.dll",
@@ -212,18 +212,18 @@
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.uiautomation.activities\\21.10.3\\lib/net461/UiPath.CV.Activities.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.uiautomation.activities\\21.10.3\\lib/net461/UiPath.CV.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.uiautomation.activities\\21.10.3\\lib/net461/UiPath.UIAutomation.Activities.Design.dll",
+        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.uiautomation.activities\\21.10.3\\lib/net461/UiPath.UiAutomation.Activities.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.uiautomation.activities\\21.10.3\\lib/net461/UiPath.UIAutomationCore.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.uiautomation.activities\\21.10.3\\lib/net461/UiPath.UIAutomationNext.Activities.Design.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.uiautomation.activities\\21.10.3\\lib/net461/UiPath.UIAutomationNext.Activities.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.uiautomation.activities\\21.10.3\\lib/net461/UiPath.UIAutomationNext.dll",
-        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.uiautomation.activities\\21.10.3\\lib/net461/UiPath.UiAutomation.Activities.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.uiautomation.activities\\21.10.3\\lib/net461/UiPath.Wizards.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.vision\\3.1.4\\lib/net461/UiPath.Vision.AzureComputerVision.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.vision\\3.1.4\\lib/net461/UiPath.Vision.Core.dll",
+        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.vision\\3.1.4\\lib/net461/UiPath.Vision.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.vision\\3.1.4\\lib/net461/UiPath.Vision.GoogleCloud.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.vision\\3.1.4\\lib/net461/UiPath.Vision.Microsoft.dll",
-        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.vision\\3.1.4\\lib/net461/UiPath.Vision.Tesseract.dll",
-        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.vision\\3.1.4\\lib/net461/UiPath.Vision.dll"
+        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.vision\\3.1.4\\lib/net461/UiPath.Vision.Tesseract.dll"
       ],
       "Path": "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.uiautomation.activities\\21.10.3"
     }
@@ -1537,8 +1537,8 @@
         "Version": "1.43.0"
       },
       "Assemblies": [
-        "C:\\Users\\jepeterson\\.nuget\\packages\\google.apis\\1.43.0\\lib\\net45\\Google.Apis.PlatformServices.dll",
-        "C:\\Users\\jepeterson\\.nuget\\packages\\google.apis\\1.43.0\\lib\\net45\\Google.Apis.dll"
+        "C:\\Users\\jepeterson\\.nuget\\packages\\google.apis\\1.43.0\\lib\\net45\\Google.Apis.dll",
+        "C:\\Users\\jepeterson\\.nuget\\packages\\google.apis\\1.43.0\\lib\\net45\\Google.Apis.PlatformServices.dll"
       ],
       "Path": "C:\\Users\\jepeterson\\.nuget\\packages\\google.apis\\1.43.0"
     },
@@ -1548,8 +1548,8 @@
         "Version": "1.43.0"
       },
       "Assemblies": [
-        "C:\\Users\\jepeterson\\.nuget\\packages\\google.apis.auth\\1.43.0\\lib\\net45\\Google.Apis.Auth.PlatformServices.dll",
-        "C:\\Users\\jepeterson\\.nuget\\packages\\google.apis.auth\\1.43.0\\lib\\net45\\Google.Apis.Auth.dll"
+        "C:\\Users\\jepeterson\\.nuget\\packages\\google.apis.auth\\1.43.0\\lib\\net45\\Google.Apis.Auth.dll",
+        "C:\\Users\\jepeterson\\.nuget\\packages\\google.apis.auth\\1.43.0\\lib\\net45\\Google.Apis.Auth.PlatformServices.dll"
       ],
       "Path": "C:\\Users\\jepeterson\\.nuget\\packages\\google.apis.auth\\1.43.0"
     },
@@ -2046,10 +2046,10 @@
         "Version": "2.4.1"
       },
       "Assemblies": [
+        "C:\\Users\\jepeterson\\.nuget\\packages\\npoi\\2.4.1\\lib\\net45\\NPOI.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\npoi\\2.4.1\\lib\\net45\\NPOI.OOXML.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\npoi\\2.4.1\\lib\\net45\\NPOI.OpenXml4Net.dll",
-        "C:\\Users\\jepeterson\\.nuget\\packages\\npoi\\2.4.1\\lib\\net45\\NPOI.OpenXmlFormats.dll",
-        "C:\\Users\\jepeterson\\.nuget\\packages\\npoi\\2.4.1\\lib\\net45\\NPOI.dll"
+        "C:\\Users\\jepeterson\\.nuget\\packages\\npoi\\2.4.1\\lib\\net45\\NPOI.OpenXmlFormats.dll"
       ],
       "Path": "C:\\Users\\jepeterson\\.nuget\\packages\\npoi\\2.4.1"
     },
@@ -2319,10 +2319,10 @@
         "Version": "1.6.0"
       },
       "Assemblies": [
-        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.cefsharpbundle\\1.6.0\\lib\\net452\\CefSharp.Core.Runtime.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.cefsharpbundle\\1.6.0\\lib\\net452\\CefSharp.Core.dll",
-        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.cefsharpbundle\\1.6.0\\lib\\net452\\CefSharp.Wpf.dll",
-        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.cefsharpbundle\\1.6.0\\lib\\net452\\CefSharp.dll"
+        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.cefsharpbundle\\1.6.0\\lib\\net452\\CefSharp.Core.Runtime.dll",
+        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.cefsharpbundle\\1.6.0\\lib\\net452\\CefSharp.dll",
+        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.cefsharpbundle\\1.6.0\\lib\\net452\\CefSharp.Wpf.dll"
       ],
       "Path": "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.cefsharpbundle\\1.6.0"
     },
@@ -2346,8 +2346,8 @@
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.excel.activities\\2.11.4\\lib\\net461\\Microsoft.Vbe.Interop.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.excel.activities\\2.11.4\\lib\\net461\\Office.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.excel.activities\\2.11.4\\lib\\net461\\UiPath.Excel.Activities.Design.dll",
-        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.excel.activities\\2.11.4\\lib\\net461\\UiPath.Excel.Activities.Package.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.excel.activities\\2.11.4\\lib\\net461\\UiPath.Excel.Activities.dll",
+        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.excel.activities\\2.11.4\\lib\\net461\\UiPath.Excel.Activities.Package.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.excel.activities\\2.11.4\\lib\\net461\\UiPath.Excel.dll"
       ],
       "Path": "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.excel.activities\\2.11.4"
@@ -2375,8 +2375,8 @@
       "Assemblies": [
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.formactivitylibrary\\1.9.1\\lib\\net461\\NamedPipeWrapper.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.formactivitylibrary\\1.9.1\\lib\\net461\\UiPath.Form.ActivityLibrary.dll",
-        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.formactivitylibrary\\1.9.1\\lib\\net461\\UiPath.Form.Host.Local.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.formactivitylibrary\\1.9.1\\lib\\net461\\UiPath.Form.dll",
+        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.formactivitylibrary\\1.9.1\\lib\\net461\\UiPath.Form.Host.Local.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.formactivitylibrary\\1.9.1\\lib\\net461\\UiPath.OutOfProcessUi.Common.dll"
       ],
       "Path": "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.formactivitylibrary\\1.9.1"
@@ -2412,8 +2412,8 @@
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.mail.activities\\1.12.2\\lib\\net461\\Microsoft.Office.Interop.Word.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.mail.activities\\1.12.2\\lib\\net461\\Office.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.mail.activities\\1.12.2\\lib\\net461\\UiPath.Mail.Activities.Design.dll",
-        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.mail.activities\\1.12.2\\lib\\net461\\UiPath.Mail.Activities.Package.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.mail.activities\\1.12.2\\lib\\net461\\UiPath.Mail.Activities.dll",
+        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.mail.activities\\1.12.2\\lib\\net461\\UiPath.Mail.Activities.Package.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.mail.activities\\1.12.2\\lib\\net461\\UiPath.Mail.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.mail.activities\\1.12.2\\lib\\net461\\UiPath.MainSessionServer.Shared.dll"
       ],
@@ -2483,11 +2483,11 @@
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.uiautomation.activities\\21.10.3\\lib\\net461\\UiPath.CV.Activities.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.uiautomation.activities\\21.10.3\\lib\\net461\\UiPath.CV.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.uiautomation.activities\\21.10.3\\lib\\net461\\UiPath.UIAutomation.Activities.Design.dll",
+        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.uiautomation.activities\\21.10.3\\lib\\net461\\UiPath.UiAutomation.Activities.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.uiautomation.activities\\21.10.3\\lib\\net461\\UiPath.UIAutomationCore.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.uiautomation.activities\\21.10.3\\lib\\net461\\UiPath.UIAutomationNext.Activities.Design.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.uiautomation.activities\\21.10.3\\lib\\net461\\UiPath.UIAutomationNext.Activities.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.uiautomation.activities\\21.10.3\\lib\\net461\\UiPath.UIAutomationNext.dll",
-        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.uiautomation.activities\\21.10.3\\lib\\net461\\UiPath.UiAutomation.Activities.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.uiautomation.activities\\21.10.3\\lib\\net461\\UiPath.Wizards.dll"
       ],
       "Path": "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.uiautomation.activities\\21.10.3"
@@ -2500,10 +2500,10 @@
       "Assemblies": [
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.vision\\3.1.4\\lib\\net461\\UiPath.Vision.AzureComputerVision.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.vision\\3.1.4\\lib\\net461\\UiPath.Vision.Core.dll",
+        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.vision\\3.1.4\\lib\\net461\\UiPath.Vision.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.vision\\3.1.4\\lib\\net461\\UiPath.Vision.GoogleCloud.dll",
         "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.vision\\3.1.4\\lib\\net461\\UiPath.Vision.Microsoft.dll",
-        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.vision\\3.1.4\\lib\\net461\\UiPath.Vision.Tesseract.dll",
-        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.vision\\3.1.4\\lib\\net461\\UiPath.Vision.dll"
+        "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.vision\\3.1.4\\lib\\net461\\UiPath.Vision.Tesseract.dll"
       ],
       "Path": "C:\\Users\\jepeterson\\.nuget\\packages\\uipath.vision\\3.1.4"
     }
