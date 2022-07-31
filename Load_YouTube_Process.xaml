@@ -1,19 +1,17 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Load_YouTube_Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Load_YouTube_Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_URL" Type="InArgument(x:String)" />
     <x:Property Name="in_SearchTerm" Type="InArgument(x:String)" />
     <x:Property Name="in_UploadDate" Type="InArgument(x:String)" />
     <x:Property Name="in_Type" Type="InArgument(x:String)" />
     <x:Property Name="in_Duration" Type="InArgument(x:String)" />
-    <x:Property Name="in_SortBy" Type="InArgument(x:String)" />
     <x:Property Name="in_Features" Type="InArgument(x:String)" />
-    <x:Property Name="in_SearchCount" Type="InArgument(x:Int32)" />
-    <x:Property Name="in_FormDT" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_SortBy" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1199,7128</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1511,6863</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Load_YouTube_Process_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -84,6 +82,7 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Windows.Presentation</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -91,488 +90,528 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Load_YouTube_Process" sap:VirtualizedContainerService.HintSize="1076,7063" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Load_YouTube_Process" sap:VirtualizedContainerService.HintSize="1040,6798" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Default="[in_Type]" Name="v_type" />
-      <Variable x:TypeArguments="ui:UiElement" Name="v_filterElement" />
-      <Variable x:TypeArguments="ui:UiElement" Name="v_searchBarElement" />
-      <Variable x:TypeArguments="x:String" Default="[in_SearchTerm]" Name="v_searchTerm" />
-      <Variable x:TypeArguments="x:String" Default="[in_Duration]" Name="v_duration" />
-      <Variable x:TypeArguments="x:String" Default="[in_UploadDate]" Name="v_uploadDate" />
-      <Variable x:TypeArguments="x:String" Default="[in_Features]" Name="v_features" />
-      <Variable x:TypeArguments="x:String" Default="[in_SortBy]" Name="v_sortBy" />
-      <Variable x:TypeArguments="ui:UiElement" Name="v_foundUpload" />
-      <Variable x:TypeArguments="sd:DataTable" Default="[in_FormDT]" Name="v_formDT" />
+      <Variable x:TypeArguments="x:String" Name="v_UploadDate" />
+      <Variable x:TypeArguments="x:String" Name="v_SortBy" />
+      <Variable x:TypeArguments="x:String" Name="v_Features" />
+      <Variable x:TypeArguments="x:String" Name="v_Duration" />
+      <Variable x:TypeArguments="x:String" Name="v_Type" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:CloseWindow TimeoutMS="{x:Null}" UseWindow="{x:Null}" ContinueOnError="True" DisplayName="Close Window 'chrome.exe  YouTube'" sap:VirtualizedContainerService.HintSize="1034,106" sap2010:WorkflowViewState.IdRef="CloseWindow_1" InformativeScreenshot="d1169c2b05ddc8e251f7e4dc8b108ae2" Selector="&lt;html app='chrome.exe' omit:title='YouTube' /&gt;" WaitForReady="INTERACTIVE" />
-    <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="1034,6825" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="[in_URL]">
+    <ui:CloseWindow TimeoutMS="{x:Null}" UseWindow="{x:Null}" ContinueOnError="True" DisplayName="Close Window 'chrome.exe  YouTube'" sap:VirtualizedContainerService.HintSize="998,106" sap2010:WorkflowViewState.IdRef="CloseWindow_1" InformativeScreenshot="d1169c2b05ddc8e251f7e4dc8b108ae2" Selector="&lt;html app='chrome.exe' omit:title='YouTube' /&gt;" WaitForReady="INTERACTIVE" />
+    <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="998,6560" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="[in_URL]">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1000,6724" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="964,6459" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'brave.exe YouTube'" sap:VirtualizedContainerService.HintSize="958,6632" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="7a5ed9c405e02f520dc83a0b83526cf1" Selector="&lt;html app='chrome.exe' title='YouTube*' /&gt;">
+            <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'brave.exe YouTube'" sap:VirtualizedContainerService.HintSize="922,6367" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="7a5ed9c405e02f520dc83a0b83526cf1" Selector="&lt;html app='chrome.exe' title='YouTube*' /&gt;">
               <ui:BrowserScope.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="924,6486" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="888,6221" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="ui:UiElement" Name="v_searchBarElement" />
+                    </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:OnUiElementAppear ContinueOnError="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="On Element Appear 'INPUT  search'" FoundElement="[v_searchBarElement]" sap:VirtualizedContainerService.HintSize="882,6394" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_2" RepeatForever="False">
+                    <ui:OnUiElementAppear ContinueOnError="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="On Element Appear 'INPUT  search'" FoundElement="[v_searchBarElement]" sap:VirtualizedContainerService.HintSize="983,6424" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_2" RepeatForever="False">
                       <ui:OnUiElementAppear.Body>
-                        <Sequence DisplayName="Keyword_Search_Sequence" sap:VirtualizedContainerService.HintSize="848,6218" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                        <Sequence DisplayName="Keyword_Search_Sequence" sap:VirtualizedContainerService.HintSize="949,6248" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="x:String" Name="v_SearchTerm" />
+                          </Sequence.Variables>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="806,6126" sap2010:WorkflowViewState.IdRef="Sequence_13">
-                            <Sequence.Variables>
-                              <Variable x:TypeArguments="x:Int32" Default="[in_SearchCount]" Name="v_searchCount" />
-                            </Sequence.Variables>
+                          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="907,255" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                            <ui:MultipleAssign.AssignOperations>
+                              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                                  <ui:AssignOperation.To>
+                                    <OutArgument x:TypeArguments="x:String">[v_SearchTerm]</OutArgument>
+                                  </ui:AssignOperation.To>
+                                  <ui:AssignOperation.Value>
+                                    <InArgument x:TypeArguments="x:String">[in_SearchTerm]</InArgument>
+                                  </ui:AssignOperation.Value>
+                                </ui:AssignOperation>
+                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                                  <ui:AssignOperation.To>
+                                    <OutArgument x:TypeArguments="x:String">[v_UploadDate]</OutArgument>
+                                  </ui:AssignOperation.To>
+                                  <ui:AssignOperation.Value>
+                                    <InArgument x:TypeArguments="x:String">[in_UploadDate]</InArgument>
+                                  </ui:AssignOperation.Value>
+                                </ui:AssignOperation>
+                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                                  <ui:AssignOperation.To>
+                                    <OutArgument x:TypeArguments="x:String">[v_SortBy]</OutArgument>
+                                  </ui:AssignOperation.To>
+                                  <ui:AssignOperation.Value>
+                                    <InArgument x:TypeArguments="x:String">[in_SortBy]</InArgument>
+                                  </ui:AssignOperation.Value>
+                                </ui:AssignOperation>
+                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                                  <ui:AssignOperation.To>
+                                    <OutArgument x:TypeArguments="x:String">[v_Features]</OutArgument>
+                                  </ui:AssignOperation.To>
+                                  <ui:AssignOperation.Value>
+                                    <InArgument x:TypeArguments="x:String">[in_Features]</InArgument>
+                                  </ui:AssignOperation.Value>
+                                </ui:AssignOperation>
+                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                                  <ui:AssignOperation.To>
+                                    <OutArgument x:TypeArguments="x:String">[v_Duration]</OutArgument>
+                                  </ui:AssignOperation.To>
+                                  <ui:AssignOperation.Value>
+                                    <InArgument x:TypeArguments="x:String">[in_Duration]</InArgument>
+                                  </ui:AssignOperation.Value>
+                                </ui:AssignOperation>
+                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                                  <ui:AssignOperation.To>
+                                    <OutArgument x:TypeArguments="x:String">[v_Type]</OutArgument>
+                                  </ui:AssignOperation.To>
+                                  <ui:AssignOperation.Value>
+                                    <InArgument x:TypeArguments="x:String">[in_Type]</InArgument>
+                                  </ui:AssignOperation.Value>
+                                </ui:AssignOperation>
+                              </scg:List>
+                            </ui:MultipleAssign.AssignOperations>
+                          </ui:MultipleAssign>
+                          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  search'" EmptyField="False" sap:VirtualizedContainerService.HintSize="907,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" SendWindowMessages="False" SimulateType="True" Text="[v_SearchTerm]">
+                            <ui:TypeInto.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f9fd8396-23b7-4ad5-936a-cea8ef12a613" InformativeScreenshot="771b7e2cad1d6adfdd363271d35433bc" Selector="&lt;html app='chrome.exe' title='*YouTube' /&gt;&lt;webctrl tag='INPUT' /&gt;" WaitForReady="COMPLETE">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                              </ui:Target>
+                            </ui:TypeInto.Target>
+                          </ui:TypeInto>
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'BUTTON  search-icon-leg...'" sap:VirtualizedContainerService.HintSize="907,106" sap2010:WorkflowViewState.IdRef="Click_9" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition OffsetX="54" OffsetY="26" Position="TopLeft" />
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="18a8fa1b-60bd-4622-b365-b33ea6bccfa6" InformativeScreenshot="dddece5de4f37246bead206864e8de3d" Selector="&lt;webctrl parentid='search-icon-legacy' tag='YT-ICON' /&gt;" WaitForReady="COMPLETE">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                              </ui:Target>
+                            </ui:Click.Target>
+                          </ui:Click>
+                          <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="907,5541" sap2010:WorkflowViewState.IdRef="Sequence_13">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:InterruptibleWhile Condition="[v_searchCount&gt;0]" DisplayName="While" sap:VirtualizedContainerService.HintSize="764,5934" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
-                              <ui:InterruptibleWhile.Body>
-                                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="728,5769" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="865,5449" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="823,5357" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="781,5265" sap2010:WorkflowViewState.IdRef="Sequence_21">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="686,5677" sap2010:WorkflowViewState.IdRef="Sequence_47">
-                                    <sap:WorkflowViewStateService.ViewState>
-                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                      </scg:Dictionary>
-                                    </sap:WorkflowViewStateService.ViewState>
-                                    <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  search'" EmptyField="False" sap:VirtualizedContainerService.HintSize="644,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" SendWindowMessages="False" SimulateType="True" Text="[v_searchTerm]">
-                                      <ui:TypeInto.Target>
-                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f9fd8396-23b7-4ad5-936a-cea8ef12a613" InformativeScreenshot="771b7e2cad1d6adfdd363271d35433bc" Selector="&lt;html app='chrome.exe' title='*YouTube' /&gt;&lt;webctrl tag='INPUT' /&gt;" WaitForReady="COMPLETE">
-                                          <ui:Target.TimeoutMS>
-                                            <InArgument x:TypeArguments="x:Int32" />
-                                          </ui:Target.TimeoutMS>
-                                        </ui:Target>
-                                      </ui:TypeInto.Target>
-                                    </ui:TypeInto>
-                                    <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="644,5411" sap2010:WorkflowViewState.IdRef="Sequence_21">
-                                      <sap:WorkflowViewStateService.ViewState>
-                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                        </scg:Dictionary>
-                                      </sap:WorkflowViewStateService.ViewState>
-                                      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'BUTTON  search-icon-leg...'" sap:VirtualizedContainerService.HintSize="602,106" sap2010:WorkflowViewState.IdRef="Click_9" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
-                                        <ui:Click.CursorPosition>
-                                          <ui:CursorPosition OffsetX="54" OffsetY="26" Position="TopLeft" />
-                                        </ui:Click.CursorPosition>
-                                        <ui:Click.Target>
-                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="18a8fa1b-60bd-4622-b365-b33ea6bccfa6" InformativeScreenshot="dddece5de4f37246bead206864e8de3d" Selector="&lt;html app='chrome.exe' title='YouTube' /&gt;&lt;webctrl id='search-icon-legacy' tag='BUTTON' /&gt;" WaitForReady="COMPLETE">
-                                            <ui:Target.TimeoutMS>
-                                              <InArgument x:TypeArguments="x:Int32" />
-                                            </ui:Target.TimeoutMS>
-                                          </ui:Target>
-                                        </ui:Click.Target>
-                                      </ui:Click>
-                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="602,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[v_uploadDate]" />
-                                      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'YT-FORMATTED-STRING  te...'" sap:VirtualizedContainerService.HintSize="602,106" sap2010:WorkflowViewState.IdRef="Click_10" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
-                                        <ui:Click.CursorPosition>
-                                          <ui:CursorPosition OffsetX="28" OffsetY="6" Position="TopLeft" />
-                                        </ui:Click.CursorPosition>
-                                        <ui:Click.Target>
-                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7c8a147a-262d-4205-b1f8-2d1369c16276" InformativeScreenshot="745b230132a77b8bf3a8a0a4c1820751" Selector="&lt;webctrl aaname='Filters' id='text' parentid='button' tag='YT-FORMATTED-STRING' /&gt;" WaitForReady="COMPLETE">
-                                            <ui:Target.TimeoutMS>
-                                              <InArgument x:TypeArguments="x:Int32" />
-                                            </ui:Target.TimeoutMS>
-                                          </ui:Target>
-                                        </ui:Click.Target>
-                                      </ui:Click>
-                                      <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="On Element Appear 'YT-FORMATTED-STRING'" sap:VirtualizedContainerService.HintSize="602,744" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_9" RepeatForever="False">
-                                        <ui:OnUiElementAppear.Body>
-                                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="568,568" sap2010:WorkflowViewState.IdRef="Sequence_35">
-                                            <sap:WorkflowViewStateService.ViewState>
-                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                              </scg:Dictionary>
-                                            </sap:WorkflowViewStateService.ViewState>
-                                            <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="526,476" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="739,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[v_UploadDate]" />
+                                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'YT-FORMATTED-STRING  te...'" sap:VirtualizedContainerService.HintSize="739,106" sap2010:WorkflowViewState.IdRef="Click_10" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                                    <ui:Click.CursorPosition>
+                                      <ui:CursorPosition OffsetX="28" OffsetY="6" Position="TopLeft" />
+                                    </ui:Click.CursorPosition>
+                                    <ui:Click.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7c8a147a-262d-4205-b1f8-2d1369c16276" InformativeScreenshot="745b230132a77b8bf3a8a0a4c1820751" Selector="&lt;webctrl aaname='Filters' id='text' parentid='button' tag='YT-FORMATTED-STRING' /&gt;" WaitForReady="COMPLETE">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                      </ui:Target>
+                                    </ui:Click.Target>
+                                  </ui:Click>
+                                  <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="On Element Appear 'YT-FORMATTED-STRING'" sap:VirtualizedContainerService.HintSize="739,744" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_9" RepeatForever="False">
+                                    <ui:OnUiElementAppear.Body>
+                                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="705,568" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="663,476" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <If Condition="[v_UploadDate &lt;&gt; &quot;None&quot; or v_UploadDate &lt;&gt; vbNullString]" sap:VirtualizedContainerService.HintSize="621,384" sap2010:WorkflowViewState.IdRef="If_1">
+                                            <If.Then>
+                                              <Sequence sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'YT-FORMATTED-STRING'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_21" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                                  <ui:Click.CursorPosition>
+                                                    <ui:CursorPosition Position="Center">
+                                                      <ui:CursorPosition.OffsetX>
+                                                        <InArgument x:TypeArguments="x:Int32" />
+                                                      </ui:CursorPosition.OffsetX>
+                                                      <ui:CursorPosition.OffsetY>
+                                                        <InArgument x:TypeArguments="x:Int32" />
+                                                      </ui:CursorPosition.OffsetY>
+                                                    </ui:CursorPosition>
+                                                  </ui:Click.CursorPosition>
+                                                  <ui:Click.Target>
+                                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bb31d5a9-b2a7-49da-be62-f80cce3237a5" InformativeScreenshot="e41324818b0e15ea1ea26ff3f8bc3da3" Selector="[String.Format(&quot;&lt;webctrl aaname='{0}' parentid='label' tag='YT-FORMATTED-STRING' /&gt;&quot;, v_UploadDate)]">
+                                                      <ui:Target.TimeoutMS>
+                                                        <InArgument x:TypeArguments="x:Int32" />
+                                                      </ui:Target.TimeoutMS>
+                                                      <ui:Target.WaitForReady>
+                                                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                      </ui:Target.WaitForReady>
+                                                    </ui:Target>
+                                                  </ui:Click.Target>
+                                                </ui:Click>
+                                              </Sequence>
+                                            </If.Then>
+                                            <If.Else>
+                                              <Sequence sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                              </Sequence>
+                                            </If.Else>
+                                          </If>
+                                        </Sequence>
+                                      </Sequence>
+                                    </ui:OnUiElementAppear.Body>
+                                    <ui:OnUiElementAppear.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dc76cd54-124d-45d0-b944-8e93fa8d25f0" InformativeScreenshot="2ee7abd14494e23452931067bd789047" Selector="&lt;webctrl idx='1' parentid='filter-group-name' tag='YT-FORMATTED-STRING' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:OnUiElementAppear.Target>
+                                  </ui:OnUiElementAppear>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="739,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[v_Type]" />
+                                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'YT-FORMATTED-STRING  te...'" sap:VirtualizedContainerService.HintSize="739,106" sap2010:WorkflowViewState.IdRef="Click_16" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                                    <ui:Click.CursorPosition>
+                                      <ui:CursorPosition OffsetX="42" OffsetY="7" Position="TopLeft" />
+                                    </ui:Click.CursorPosition>
+                                    <ui:Click.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7c8a147a-262d-4205-b1f8-2d1369c16276" InformativeScreenshot="dd2fa6b598ffc2509a1947de1f50884a" Selector="&lt;webctrl aaname='Filters' id='text' parentid='button' tag='YT-FORMATTED-STRING' /&gt;" WaitForReady="COMPLETE">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                      </ui:Target>
+                                    </ui:Click.Target>
+                                  </ui:Click>
+                                  <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="On Element Appear 'YT-FORMATTED-STRING'" sap:VirtualizedContainerService.HintSize="739,744" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_8" RepeatForever="False">
+                                    <ui:OnUiElementAppear.Body>
+                                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="568,568" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="526,476" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <If Condition="[v_Type &lt;&gt; &quot;None&quot; or v_Type = vbNullString]" sap:VirtualizedContainerService.HintSize="484,384" sap2010:WorkflowViewState.IdRef="If_2">
+                                            <If.Then>
+                                              <Sequence sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'YT-FORMATTED-STRING'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_12" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                                                  <ui:Click.CursorPosition>
+                                                    <ui:CursorPosition OffsetX="18" OffsetY="10" Position="TopLeft" />
+                                                  </ui:Click.CursorPosition>
+                                                  <ui:Click.Target>
+                                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bdda73d1-764b-43c7-bbd2-474ae8f7b668" InformativeScreenshot="8ff58cedc29ffb9eededb114b16702b3" Selector="[String.Format(&quot;&lt;html app='chrome.exe' title='*YouTube' /&gt;&lt;webctrl aaname='{0}' parentid='label' tag='YT-FORMATTED-STRING' /&gt;&quot;, v_Type)]" WaitForReady="COMPLETE">
+                                                      <ui:Target.TimeoutMS>
+                                                        <InArgument x:TypeArguments="x:Int32" />
+                                                      </ui:Target.TimeoutMS>
+                                                    </ui:Target>
+                                                  </ui:Click.Target>
+                                                </ui:Click>
+                                              </Sequence>
+                                            </If.Then>
+                                            <If.Else>
+                                              <Sequence sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                              </Sequence>
+                                            </If.Else>
+                                          </If>
+                                        </Sequence>
+                                      </Sequence>
+                                    </ui:OnUiElementAppear.Body>
+                                    <ui:OnUiElementAppear.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dc76cd54-124d-45d0-b944-8e93fa8d25f0" InformativeScreenshot="ab5586a62cb86ae9260dc7ec3f1cab02" Selector="&lt;html app='chrome.exe' omit:title='Ukraine - YouTube' /&gt;&lt;webctrl idx='2' parentid='filter-group-name' tag='YT-FORMATTED-STRING' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:OnUiElementAppear.Target>
+                                  </ui:OnUiElementAppear>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="739,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[v_Duration]" />
+                                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'YT-FORMATTED-STRING  te...'" sap:VirtualizedContainerService.HintSize="739,106" sap2010:WorkflowViewState.IdRef="Click_17" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                                    <ui:Click.CursorPosition>
+                                      <ui:CursorPosition OffsetX="35" OffsetY="12" Position="TopLeft" />
+                                    </ui:Click.CursorPosition>
+                                    <ui:Click.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7c8a147a-262d-4205-b1f8-2d1369c16276" InformativeScreenshot="dd2fa6b598ffc2509a1947de1f50884a" Selector="&lt;webctrl aaname='Filters' id='text' parentid='button' tag='YT-FORMATTED-STRING' /&gt;" WaitForReady="COMPLETE">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                      </ui:Target>
+                                    </ui:Click.Target>
+                                  </ui:Click>
+                                  <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="On Element Appear 'YT-FORMATTED-STRING'" sap:VirtualizedContainerService.HintSize="739,744" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_5" RepeatForever="False">
+                                    <ui:OnUiElementAppear.Body>
+                                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="568,568" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="526,476" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <If Condition="[v_Duration &lt;&gt; &quot;None&quot; or v_Duration = vbNullString]" sap:VirtualizedContainerService.HintSize="484,384" sap2010:WorkflowViewState.IdRef="If_3">
+                                            <If.Then>
+                                              <Sequence sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'YT-FORMATTED-STRING'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_13" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                                                  <ui:Click.CursorPosition>
+                                                    <ui:CursorPosition OffsetX="25" OffsetY="10" Position="TopLeft" />
+                                                  </ui:Click.CursorPosition>
+                                                  <ui:Click.Target>
+                                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="337b3098-538d-4616-81e3-b40904249aa5" InformativeScreenshot="e8b000c1b90d2d2a3b59724d795de88f" Selector="[String.Format(&quot;&lt;html app='chrome.exe' omit:title='* - YouTube' /&gt;&lt;webctrl aaname='{0}' parentid='label' tag='YT-FORMATTED-STRING' /&gt;&quot;, v_Duration)]" WaitForReady="COMPLETE">
+                                                      <ui:Target.TimeoutMS>
+                                                        <InArgument x:TypeArguments="x:Int32" />
+                                                      </ui:Target.TimeoutMS>
+                                                    </ui:Target>
+                                                  </ui:Click.Target>
+                                                </ui:Click>
+                                              </Sequence>
+                                            </If.Then>
+                                            <If.Else>
+                                              <Sequence sap:VirtualizedContainerService.HintSize="200,84.8" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                              </Sequence>
+                                            </If.Else>
+                                          </If>
+                                        </Sequence>
+                                      </Sequence>
+                                    </ui:OnUiElementAppear.Body>
+                                    <ui:OnUiElementAppear.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dc76cd54-124d-45d0-b944-8e93fa8d25f0" InformativeScreenshot="c701177cd1fa481c799d34fd69178ee0" Selector="&lt;html app='chrome.exe' omit:title='Ukraine - YouTube' /&gt;&lt;webctrl idx='3' parentid='filter-group-name' tag='YT-FORMATTED-STRING' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:OnUiElementAppear.Target>
+                                  </ui:OnUiElementAppear>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="739,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[v_Features]" />
+                                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'YT-FORMATTED-STRING  te...'" sap:VirtualizedContainerService.HintSize="739,106" sap2010:WorkflowViewState.IdRef="Click_22" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                                    <ui:Click.CursorPosition>
+                                      <ui:CursorPosition OffsetX="35" OffsetY="12" Position="TopLeft" />
+                                    </ui:Click.CursorPosition>
+                                    <ui:Click.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7c8a147a-262d-4205-b1f8-2d1369c16276" InformativeScreenshot="dd2fa6b598ffc2509a1947de1f50884a" Selector="&lt;webctrl aaname='Filters' id='text' parentid='button' tag='YT-FORMATTED-STRING' /&gt;" WaitForReady="COMPLETE">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                      </ui:Target>
+                                    </ui:Click.Target>
+                                  </ui:Click>
+                                  <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="On Element Appear 'YT-FORMATTED-STRING'" sap:VirtualizedContainerService.HintSize="739,652" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_6" RepeatForever="False">
+                                    <ui:OnUiElementAppear.Body>
+                                      <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="526,476" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <If Condition="[v_Features  &lt;&gt; &quot;None&quot;  or v_Features = vbNullString]" sap:VirtualizedContainerService.HintSize="484,384" sap2010:WorkflowViewState.IdRef="If_4">
+                                          <If.Then>
+                                            <Sequence sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_42">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
-                                              <If Condition="[v_uploadDate &lt;&gt; &quot;None&quot;]" sap:VirtualizedContainerService.HintSize="484,384" sap2010:WorkflowViewState.IdRef="If_1">
-                                                <If.Then>
-                                                  <Sequence sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_36">
-                                                    <sap:WorkflowViewStateService.ViewState>
-                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                      </scg:Dictionary>
-                                                    </sap:WorkflowViewStateService.ViewState>
-                                                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'YT-FORMATTED-STRING'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_21" KeyModifiers="None" MouseButton="BTN_LEFT">
-                                                      <ui:Click.CursorPosition>
-                                                        <ui:CursorPosition Position="Center">
-                                                          <ui:CursorPosition.OffsetX>
-                                                            <InArgument x:TypeArguments="x:Int32" />
-                                                          </ui:CursorPosition.OffsetX>
-                                                          <ui:CursorPosition.OffsetY>
-                                                            <InArgument x:TypeArguments="x:Int32" />
-                                                          </ui:CursorPosition.OffsetY>
-                                                        </ui:CursorPosition>
-                                                      </ui:Click.CursorPosition>
-                                                      <ui:Click.Target>
-                                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bb31d5a9-b2a7-49da-be62-f80cce3237a5" InformativeScreenshot="5696a5aa13e10d711848f9d62023f7f4" Selector="[String.Format(&quot;&lt;webctrl aaname='{0}' parentid='label' tag='YT-FORMATTED-STRING' /&gt;&quot;, v_uploadDate)]">
-                                                          <ui:Target.TimeoutMS>
-                                                            <InArgument x:TypeArguments="x:Int32" />
-                                                          </ui:Target.TimeoutMS>
-                                                          <ui:Target.WaitForReady>
-                                                            <InArgument x:TypeArguments="ui:WaitForReady" />
-                                                          </ui:Target.WaitForReady>
-                                                        </ui:Target>
-                                                      </ui:Click.Target>
-                                                    </ui:Click>
-                                                  </Sequence>
-                                                </If.Then>
-                                                <If.Else>
-                                                  <Sequence sap:VirtualizedContainerService.HintSize="200,84.8" sap2010:WorkflowViewState.IdRef="Sequence_37">
-                                                    <sap:WorkflowViewStateService.ViewState>
-                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                      </scg:Dictionary>
-                                                    </sap:WorkflowViewStateService.ViewState>
-                                                  </Sequence>
-                                                </If.Else>
-                                              </If>
+                                              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'YT-FORMATTED-STRING'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_23" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                                                <ui:Click.CursorPosition>
+                                                  <ui:CursorPosition OffsetX="17" OffsetY="11" Position="TopLeft" />
+                                                </ui:Click.CursorPosition>
+                                                <ui:Click.Target>
+                                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="243c0b8b-0873-4a60-80a9-96113b298b6d" InformativeScreenshot="d0d96c3d187c51e10e117dae433b7df5" Selector="[String.Format(&quot;&lt;html app='chrome.exe' omit:title='* - YouTube' /&gt;&lt;webctrl aaname='{0}' parentid='label' tag='YT-FORMATTED-STRING' /&gt;&quot;, v_Features)]" WaitForReady="COMPLETE">
+                                                    <ui:Target.TimeoutMS>
+                                                      <InArgument x:TypeArguments="x:Int32" />
+                                                    </ui:Target.TimeoutMS>
+                                                  </ui:Target>
+                                                </ui:Click.Target>
+                                              </ui:Click>
                                             </Sequence>
-                                          </Sequence>
-                                        </ui:OnUiElementAppear.Body>
-                                        <ui:OnUiElementAppear.Target>
-                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dc76cd54-124d-45d0-b944-8e93fa8d25f0" InformativeScreenshot="2ee7abd14494e23452931067bd789047" Selector="&lt;webctrl idx='1' parentid='filter-group-name' tag='YT-FORMATTED-STRING' /&gt;">
-                                            <ui:Target.TimeoutMS>
-                                              <InArgument x:TypeArguments="x:Int32" />
-                                            </ui:Target.TimeoutMS>
-                                            <ui:Target.WaitForReady>
-                                              <InArgument x:TypeArguments="ui:WaitForReady" />
-                                            </ui:Target.WaitForReady>
-                                          </ui:Target>
-                                        </ui:OnUiElementAppear.Target>
-                                      </ui:OnUiElementAppear>
-                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="602,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[v_type]" />
-                                      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'YT-FORMATTED-STRING  te...'" sap:VirtualizedContainerService.HintSize="602,106" sap2010:WorkflowViewState.IdRef="Click_16" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
-                                        <ui:Click.CursorPosition>
-                                          <ui:CursorPosition OffsetX="42" OffsetY="7" Position="TopLeft" />
-                                        </ui:Click.CursorPosition>
-                                        <ui:Click.Target>
-                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7c8a147a-262d-4205-b1f8-2d1369c16276" InformativeScreenshot="dd2fa6b598ffc2509a1947de1f50884a" Selector="&lt;webctrl aaname='Filters' id='text' parentid='button' tag='YT-FORMATTED-STRING' /&gt;" WaitForReady="COMPLETE">
-                                            <ui:Target.TimeoutMS>
-                                              <InArgument x:TypeArguments="x:Int32" />
-                                            </ui:Target.TimeoutMS>
-                                          </ui:Target>
-                                        </ui:Click.Target>
-                                      </ui:Click>
-                                      <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="On Element Appear 'YT-FORMATTED-STRING'" sap:VirtualizedContainerService.HintSize="602,744" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_8" RepeatForever="False">
-                                        <ui:OnUiElementAppear.Body>
-                                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="568,568" sap2010:WorkflowViewState.IdRef="Sequence_28">
-                                            <sap:WorkflowViewStateService.ViewState>
-                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                              </scg:Dictionary>
-                                            </sap:WorkflowViewStateService.ViewState>
-                                            <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="526,476" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                          </If.Then>
+                                          <If.Else>
+                                            <Sequence sap:VirtualizedContainerService.HintSize="200,84.8" sap2010:WorkflowViewState.IdRef="Sequence_43">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
-                                              <If Condition="[v_type &lt;&gt; &quot;None&quot;]" sap:VirtualizedContainerService.HintSize="484,384" sap2010:WorkflowViewState.IdRef="If_2">
-                                                <If.Then>
-                                                  <Sequence sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_38">
-                                                    <sap:WorkflowViewStateService.ViewState>
-                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                      </scg:Dictionary>
-                                                    </sap:WorkflowViewStateService.ViewState>
-                                                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'YT-FORMATTED-STRING'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_12" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
-                                                      <ui:Click.CursorPosition>
-                                                        <ui:CursorPosition OffsetX="18" OffsetY="10" Position="TopLeft" />
-                                                      </ui:Click.CursorPosition>
-                                                      <ui:Click.Target>
-                                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bdda73d1-764b-43c7-bbd2-474ae8f7b668" InformativeScreenshot="8ff58cedc29ffb9eededb114b16702b3" Selector="[String.Format(&quot;&lt;html app='chrome.exe' title='*YouTube' /&gt;&lt;webctrl aaname='{0}' parentid='label' tag='YT-FORMATTED-STRING' /&gt;&quot;, v_type)]" WaitForReady="COMPLETE">
-                                                          <ui:Target.TimeoutMS>
-                                                            <InArgument x:TypeArguments="x:Int32" />
-                                                          </ui:Target.TimeoutMS>
-                                                        </ui:Target>
-                                                      </ui:Click.Target>
-                                                    </ui:Click>
-                                                  </Sequence>
-                                                </If.Then>
-                                                <If.Else>
-                                                  <Sequence sap:VirtualizedContainerService.HintSize="200,84.8" sap2010:WorkflowViewState.IdRef="Sequence_39">
-                                                    <sap:WorkflowViewStateService.ViewState>
-                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                      </scg:Dictionary>
-                                                    </sap:WorkflowViewStateService.ViewState>
-                                                  </Sequence>
-                                                </If.Else>
-                                              </If>
                                             </Sequence>
-                                          </Sequence>
-                                        </ui:OnUiElementAppear.Body>
-                                        <ui:OnUiElementAppear.Target>
-                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dc76cd54-124d-45d0-b944-8e93fa8d25f0" InformativeScreenshot="ab5586a62cb86ae9260dc7ec3f1cab02" Selector="&lt;html app='chrome.exe' omit:title='Ukraine - YouTube' /&gt;&lt;webctrl idx='2' parentid='filter-group-name' tag='YT-FORMATTED-STRING' /&gt;">
-                                            <ui:Target.TimeoutMS>
-                                              <InArgument x:TypeArguments="x:Int32" />
-                                            </ui:Target.TimeoutMS>
-                                            <ui:Target.WaitForReady>
-                                              <InArgument x:TypeArguments="ui:WaitForReady" />
-                                            </ui:Target.WaitForReady>
-                                          </ui:Target>
-                                        </ui:OnUiElementAppear.Target>
-                                      </ui:OnUiElementAppear>
-                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="602,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[v_duration]" />
-                                      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'YT-FORMATTED-STRING  te...'" sap:VirtualizedContainerService.HintSize="602,106" sap2010:WorkflowViewState.IdRef="Click_17" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
-                                        <ui:Click.CursorPosition>
-                                          <ui:CursorPosition OffsetX="35" OffsetY="12" Position="TopLeft" />
-                                        </ui:Click.CursorPosition>
-                                        <ui:Click.Target>
-                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7c8a147a-262d-4205-b1f8-2d1369c16276" InformativeScreenshot="dd2fa6b598ffc2509a1947de1f50884a" Selector="&lt;webctrl aaname='Filters' id='text' parentid='button' tag='YT-FORMATTED-STRING' /&gt;" WaitForReady="COMPLETE">
-                                            <ui:Target.TimeoutMS>
-                                              <InArgument x:TypeArguments="x:Int32" />
-                                            </ui:Target.TimeoutMS>
-                                          </ui:Target>
-                                        </ui:Click.Target>
-                                      </ui:Click>
-                                      <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="On Element Appear 'YT-FORMATTED-STRING'" sap:VirtualizedContainerService.HintSize="602,744" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_5" RepeatForever="False">
-                                        <ui:OnUiElementAppear.Body>
-                                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="568,568" sap2010:WorkflowViewState.IdRef="Sequence_25">
-                                            <sap:WorkflowViewStateService.ViewState>
-                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                              </scg:Dictionary>
-                                            </sap:WorkflowViewStateService.ViewState>
-                                            <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="526,476" sap2010:WorkflowViewState.IdRef="Sequence_30">
-                                              <sap:WorkflowViewStateService.ViewState>
-                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                </scg:Dictionary>
-                                              </sap:WorkflowViewStateService.ViewState>
-                                              <If Condition="[v_duration &lt;&gt; &quot;None&quot;]" sap:VirtualizedContainerService.HintSize="484,384" sap2010:WorkflowViewState.IdRef="If_3">
-                                                <If.Then>
-                                                  <Sequence sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_40">
-                                                    <sap:WorkflowViewStateService.ViewState>
-                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                      </scg:Dictionary>
-                                                    </sap:WorkflowViewStateService.ViewState>
-                                                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'YT-FORMATTED-STRING'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_13" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
-                                                      <ui:Click.CursorPosition>
-                                                        <ui:CursorPosition OffsetX="25" OffsetY="10" Position="TopLeft" />
-                                                      </ui:Click.CursorPosition>
-                                                      <ui:Click.Target>
-                                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="337b3098-538d-4616-81e3-b40904249aa5" InformativeScreenshot="e8b000c1b90d2d2a3b59724d795de88f" Selector="[String.Format(&quot;&lt;html app='chrome.exe' omit:title='* - YouTube' /&gt;&lt;webctrl aaname='{0}' parentid='label' tag='YT-FORMATTED-STRING' /&gt;&quot;, v_duration)]" WaitForReady="COMPLETE">
-                                                          <ui:Target.TimeoutMS>
-                                                            <InArgument x:TypeArguments="x:Int32" />
-                                                          </ui:Target.TimeoutMS>
-                                                        </ui:Target>
-                                                      </ui:Click.Target>
-                                                    </ui:Click>
-                                                  </Sequence>
-                                                </If.Then>
-                                                <If.Else>
-                                                  <Sequence sap:VirtualizedContainerService.HintSize="200,84.8" sap2010:WorkflowViewState.IdRef="Sequence_41">
-                                                    <sap:WorkflowViewStateService.ViewState>
-                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                      </scg:Dictionary>
-                                                    </sap:WorkflowViewStateService.ViewState>
-                                                  </Sequence>
-                                                </If.Else>
-                                              </If>
-                                            </Sequence>
-                                          </Sequence>
-                                        </ui:OnUiElementAppear.Body>
-                                        <ui:OnUiElementAppear.Target>
-                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dc76cd54-124d-45d0-b944-8e93fa8d25f0" InformativeScreenshot="c701177cd1fa481c799d34fd69178ee0" Selector="&lt;html app='chrome.exe' omit:title='Ukraine - YouTube' /&gt;&lt;webctrl idx='3' parentid='filter-group-name' tag='YT-FORMATTED-STRING' /&gt;">
-                                            <ui:Target.TimeoutMS>
-                                              <InArgument x:TypeArguments="x:Int32" />
-                                            </ui:Target.TimeoutMS>
-                                            <ui:Target.WaitForReady>
-                                              <InArgument x:TypeArguments="ui:WaitForReady" />
-                                            </ui:Target.WaitForReady>
-                                          </ui:Target>
-                                        </ui:OnUiElementAppear.Target>
-                                      </ui:OnUiElementAppear>
-                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="602,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[v_features]" />
-                                      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'YT-FORMATTED-STRING  te...'" sap:VirtualizedContainerService.HintSize="602,106" sap2010:WorkflowViewState.IdRef="Click_22" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
-                                        <ui:Click.CursorPosition>
-                                          <ui:CursorPosition OffsetX="35" OffsetY="12" Position="TopLeft" />
-                                        </ui:Click.CursorPosition>
-                                        <ui:Click.Target>
-                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7c8a147a-262d-4205-b1f8-2d1369c16276" InformativeScreenshot="dd2fa6b598ffc2509a1947de1f50884a" Selector="&lt;webctrl aaname='Filters' id='text' parentid='button' tag='YT-FORMATTED-STRING' /&gt;" WaitForReady="COMPLETE">
-                                            <ui:Target.TimeoutMS>
-                                              <InArgument x:TypeArguments="x:Int32" />
-                                            </ui:Target.TimeoutMS>
-                                          </ui:Target>
-                                        </ui:Click.Target>
-                                      </ui:Click>
-                                      <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="On Element Appear 'YT-FORMATTED-STRING'" sap:VirtualizedContainerService.HintSize="602,652" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_6" RepeatForever="False">
-                                        <ui:OnUiElementAppear.Body>
-                                          <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="526,476" sap2010:WorkflowViewState.IdRef="Sequence_33">
-                                            <sap:WorkflowViewStateService.ViewState>
-                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                              </scg:Dictionary>
-                                            </sap:WorkflowViewStateService.ViewState>
-                                            <If Condition="[v_features  &lt;&gt; &quot;None&quot;]" sap:VirtualizedContainerService.HintSize="484,384" sap2010:WorkflowViewState.IdRef="If_4">
-                                              <If.Then>
-                                                <Sequence sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_42">
-                                                  <sap:WorkflowViewStateService.ViewState>
-                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                    </scg:Dictionary>
-                                                  </sap:WorkflowViewStateService.ViewState>
-                                                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'YT-FORMATTED-STRING'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_23" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
-                                                    <ui:Click.CursorPosition>
-                                                      <ui:CursorPosition OffsetX="17" OffsetY="11" Position="TopLeft" />
-                                                    </ui:Click.CursorPosition>
-                                                    <ui:Click.Target>
-                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="243c0b8b-0873-4a60-80a9-96113b298b6d" InformativeScreenshot="d0d96c3d187c51e10e117dae433b7df5" Selector="[String.Format(&quot;&lt;html app='chrome.exe' omit:title='* - YouTube' /&gt;&lt;webctrl aaname='{0}' parentid='label' tag='YT-FORMATTED-STRING' /&gt;&quot;, v_features)]" WaitForReady="COMPLETE">
-                                                        <ui:Target.TimeoutMS>
-                                                          <InArgument x:TypeArguments="x:Int32" />
-                                                        </ui:Target.TimeoutMS>
-                                                      </ui:Target>
-                                                    </ui:Click.Target>
-                                                  </ui:Click>
-                                                </Sequence>
-                                              </If.Then>
-                                              <If.Else>
-                                                <Sequence sap:VirtualizedContainerService.HintSize="200,84.8" sap2010:WorkflowViewState.IdRef="Sequence_43">
-                                                  <sap:WorkflowViewStateService.ViewState>
-                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                    </scg:Dictionary>
-                                                  </sap:WorkflowViewStateService.ViewState>
-                                                </Sequence>
-                                              </If.Else>
-                                            </If>
-                                          </Sequence>
-                                        </ui:OnUiElementAppear.Body>
-                                        <ui:OnUiElementAppear.Target>
-                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dc76cd54-124d-45d0-b944-8e93fa8d25f0" InformativeScreenshot="bec8a4ae956a53f51b3a5d1b388f671a" Selector="&lt;html app='chrome.exe' omit:title='Ukraine - YouTube' /&gt;&lt;webctrl idx='4' parentid='filter-group-name' tag='YT-FORMATTED-STRING' /&gt;">
-                                            <ui:Target.TimeoutMS>
-                                              <InArgument x:TypeArguments="x:Int32" />
-                                            </ui:Target.TimeoutMS>
-                                            <ui:Target.WaitForReady>
-                                              <InArgument x:TypeArguments="ui:WaitForReady" />
-                                            </ui:Target.WaitForReady>
-                                          </ui:Target>
-                                        </ui:OnUiElementAppear.Target>
-                                      </ui:OnUiElementAppear>
-                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="602,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[v_sortBy]" />
-                                      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'YT-FORMATTED-STRING  te...'" sap:VirtualizedContainerService.HintSize="602,106" sap2010:WorkflowViewState.IdRef="Click_19" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
-                                        <ui:Click.CursorPosition>
-                                          <ui:CursorPosition OffsetX="31" OffsetY="13" Position="TopLeft" />
-                                        </ui:Click.CursorPosition>
-                                        <ui:Click.Target>
-                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7c8a147a-262d-4205-b1f8-2d1369c16276" InformativeScreenshot="dd2fa6b598ffc2509a1947de1f50884a" Selector="&lt;html app='chrome.exe' title='* - YouTube' /&gt;&lt;webctrl aaname='Filters' id='text' parentid='button' tag='YT-FORMATTED-STRING' /&gt;" WaitForReady="COMPLETE">
-                                            <ui:Target.TimeoutMS>
-                                              <InArgument x:TypeArguments="x:Int32" />
-                                            </ui:Target.TimeoutMS>
-                                          </ui:Target>
-                                        </ui:Click.Target>
-                                      </ui:Click>
-                                      <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="On Element Appear 'YT-FORMATTED-STRING'" sap:VirtualizedContainerService.HintSize="602,744" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_7" RepeatForever="False">
-                                        <ui:OnUiElementAppear.Body>
-                                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="568,568" sap2010:WorkflowViewState.IdRef="Sequence_27">
-                                            <sap:WorkflowViewStateService.ViewState>
-                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                              </scg:Dictionary>
-                                            </sap:WorkflowViewStateService.ViewState>
-                                            <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="526,476" sap2010:WorkflowViewState.IdRef="Sequence_32">
-                                              <sap:WorkflowViewStateService.ViewState>
-                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                </scg:Dictionary>
-                                              </sap:WorkflowViewStateService.ViewState>
-                                              <If Condition="[v_sortBy &lt;&gt; &quot;None&quot;]" sap:VirtualizedContainerService.HintSize="484,384" sap2010:WorkflowViewState.IdRef="If_5">
-                                                <If.Then>
-                                                  <Sequence sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_44">
-                                                    <sap:WorkflowViewStateService.ViewState>
-                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                      </scg:Dictionary>
-                                                    </sap:WorkflowViewStateService.ViewState>
-                                                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'YT-FORMATTED-STRING'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_15" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
-                                                      <ui:Click.CursorPosition>
-                                                        <ui:CursorPosition OffsetX="49" OffsetY="10" Position="TopLeft" />
-                                                      </ui:Click.CursorPosition>
-                                                      <ui:Click.Target>
-                                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="594222c5-4cf4-4ee0-a30d-4265f4c76335" InformativeScreenshot="75213a2ac165a7d745c3e55902231a0b" Selector="[String.Format(&quot;&lt;html app='chrome.exe' omit:title='* - YouTube' /&gt;&lt;webctrl aaname='{0}' parentid='label' tag='YT-FORMATTED-STRING' /&gt;&quot;, v_sortBy)]" WaitForReady="COMPLETE">
-                                                          <ui:Target.TimeoutMS>
-                                                            <InArgument x:TypeArguments="x:Int32" />
-                                                          </ui:Target.TimeoutMS>
-                                                        </ui:Target>
-                                                      </ui:Click.Target>
-                                                    </ui:Click>
-                                                  </Sequence>
-                                                </If.Then>
-                                                <If.Else>
-                                                  <Sequence sap:VirtualizedContainerService.HintSize="200,84.8" sap2010:WorkflowViewState.IdRef="Sequence_45">
-                                                    <sap:WorkflowViewStateService.ViewState>
-                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                      </scg:Dictionary>
-                                                    </sap:WorkflowViewStateService.ViewState>
-                                                  </Sequence>
-                                                </If.Else>
-                                              </If>
-                                            </Sequence>
-                                          </Sequence>
-                                        </ui:OnUiElementAppear.Body>
-                                        <ui:OnUiElementAppear.Target>
-                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dc76cd54-124d-45d0-b944-8e93fa8d25f0" InformativeScreenshot="7c833a7ca4c9580c4bef216a492b644f" Selector="&lt;html app='chrome.exe' omit:title='* - YouTube' /&gt;&lt;webctrl idx='5' parentid='filter-group-name' tag='YT-FORMATTED-STRING' /&gt;">
-                                            <ui:Target.TimeoutMS>
-                                              <InArgument x:TypeArguments="x:Int32" />
-                                            </ui:Target.TimeoutMS>
-                                            <ui:Target.WaitForReady>
-                                              <InArgument x:TypeArguments="ui:WaitForReady" />
-                                            </ui:Target.WaitForReady>
-                                          </ui:Target>
-                                        </ui:OnUiElementAppear.Target>
-                                      </ui:OnUiElementAppear>
-                                    </Sequence>
-                                  </Sequence>
+                                          </If.Else>
+                                        </If>
+                                      </Sequence>
+                                    </ui:OnUiElementAppear.Body>
+                                    <ui:OnUiElementAppear.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dc76cd54-124d-45d0-b944-8e93fa8d25f0" InformativeScreenshot="bec8a4ae956a53f51b3a5d1b388f671a" Selector="&lt;html app='chrome.exe' omit:title='Ukraine - YouTube' /&gt;&lt;webctrl idx='4' parentid='filter-group-name' tag='YT-FORMATTED-STRING' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:OnUiElementAppear.Target>
+                                  </ui:OnUiElementAppear>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="739,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[v_SortBy]" />
+                                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'YT-FORMATTED-STRING  te...'" sap:VirtualizedContainerService.HintSize="739,106" sap2010:WorkflowViewState.IdRef="Click_19" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                                    <ui:Click.CursorPosition>
+                                      <ui:CursorPosition OffsetX="31" OffsetY="13" Position="TopLeft" />
+                                    </ui:Click.CursorPosition>
+                                    <ui:Click.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7c8a147a-262d-4205-b1f8-2d1369c16276" InformativeScreenshot="dd2fa6b598ffc2509a1947de1f50884a" Selector="&lt;html app='chrome.exe' title='* - YouTube' /&gt;&lt;webctrl aaname='Filters' id='text' parentid='button' tag='YT-FORMATTED-STRING' /&gt;" WaitForReady="COMPLETE">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                      </ui:Target>
+                                    </ui:Click.Target>
+                                  </ui:Click>
+                                  <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="On Element Appear 'YT-FORMATTED-STRING'" sap:VirtualizedContainerService.HintSize="739,744" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_7" RepeatForever="False">
+                                    <ui:OnUiElementAppear.Body>
+                                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="568,568" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="526,476" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <If Condition="[v_SortBy &lt;&gt; &quot;None&quot; or v_SortBy &lt;&gt; vbNullString]" sap:VirtualizedContainerService.HintSize="484,384" sap2010:WorkflowViewState.IdRef="If_5">
+                                            <If.Then>
+                                              <Sequence sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'YT-FORMATTED-STRING'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_15" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                                                  <ui:Click.CursorPosition>
+                                                    <ui:CursorPosition OffsetX="79" OffsetY="4" Position="TopLeft" />
+                                                  </ui:Click.CursorPosition>
+                                                  <ui:Click.Target>
+                                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="594222c5-4cf4-4ee0-a30d-4265f4c76335" InformativeScreenshot="f11f54ce0e5ecec63a1430ff702bbbbe" Selector="[String.Format(&quot;&lt;html app='chrome.exe' title='* - YouTube' /&gt;&lt;webctrl aaname='{0}' parentid='label' tag='YT-FORMATTED-STRING' /&gt;&quot;, v_SortBy)]" WaitForReady="COMPLETE">
+                                                      <ui:Target.TimeoutMS>
+                                                        <InArgument x:TypeArguments="x:Int32" />
+                                                      </ui:Target.TimeoutMS>
+                                                    </ui:Target>
+                                                  </ui:Click.Target>
+                                                </ui:Click>
+                                              </Sequence>
+                                            </If.Then>
+                                            <If.Else>
+                                              <Sequence sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                              </Sequence>
+                                            </If.Else>
+                                          </If>
+                                        </Sequence>
+                                      </Sequence>
+                                    </ui:OnUiElementAppear.Body>
+                                    <ui:OnUiElementAppear.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dc76cd54-124d-45d0-b944-8e93fa8d25f0" InformativeScreenshot="7c833a7ca4c9580c4bef216a492b644f" Selector="&lt;html app='chrome.exe' omit:title='* - YouTube' /&gt;&lt;webctrl idx='5' parentid='filter-group-name' tag='YT-FORMATTED-STRING' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:OnUiElementAppear.Target>
+                                  </ui:OnUiElementAppear>
                                 </Sequence>
-                              </ui:InterruptibleWhile.Body>
-                            </ui:InterruptibleWhile>
-                            <Assign sap:VirtualizedContainerService.HintSize="764,60" sap2010:WorkflowViewState.IdRef="Assign_1">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:Int32">[v_searchCount]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:Int32">[v_searchCount-1]</InArgument>
-                              </Assign.Value>
-                            </Assign>
+                              </Sequence>
+                            </Sequence>
                           </Sequence>
                         </Sequence>
                       </ui:OnUiElementAppear.Body>
