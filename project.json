@@ -1,7 +1,7 @@
 {
   "name": "YouTube_Scraper",
   "description": "This Process will scrape a set of YouTube videos for their relevant Data & Meta-Data, then output a summary report for the user to view",
-  "main": "Main.xaml",
+  "main": "YouTube_Scraper\\Workflows\\Main.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.11.4]",
     "UiPath.Form.Activities": "[1.9.1]",
@@ -46,8 +46,8 @@
   "expressionLanguage": "VisualBasic",
   "entryPoints": [
     {
-      "filePath": "Main.xaml",
-      "uniqueId": "ef6ec61e-b862-4783-b9eb-84c9c8e1c46e",
+      "filePath": "YouTube_Scraper\\Workflows\\Main.xaml",
+      "uniqueId": "1a457f2e-d530-4bed-a792-01558336679c",
       "input": [],
       "output": []
     }
