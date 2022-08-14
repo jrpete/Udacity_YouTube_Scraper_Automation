@@ -11,7 +11,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1511,6863</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1166.66666666667,7157.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Load_YouTube_Process_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -82,7 +82,6 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Windows.Presentation</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -90,7 +89,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Load_YouTube_Process" sap:VirtualizedContainerService.HintSize="1040,6798" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Load_YouTube_Process" sap:VirtualizedContainerService.HintSize="1176.66666666667,7092.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="v_UploadDate" />
       <Variable x:TypeArguments="x:String" Name="v_SortBy" />
@@ -103,26 +102,26 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:CloseWindow TimeoutMS="{x:Null}" UseWindow="{x:Null}" ContinueOnError="True" DisplayName="Close Window 'chrome.exe  YouTube'" sap:VirtualizedContainerService.HintSize="998,106" sap2010:WorkflowViewState.IdRef="CloseWindow_1" InformativeScreenshot="d1169c2b05ddc8e251f7e4dc8b108ae2" Selector="&lt;html app='chrome.exe' omit:title='YouTube' /&gt;" WaitForReady="INTERACTIVE" />
-    <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="998,6560" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="[in_URL]">
+    <ui:CloseWindow TimeoutMS="{x:Null}" UseWindow="{x:Null}" ContinueOnError="True" DisplayName="Close Window 'chrome.exe  YouTube'" sap:VirtualizedContainerService.HintSize="1134.66666666667,106" sap2010:WorkflowViewState.IdRef="CloseWindow_1" InformativeScreenshot="d1169c2b05ddc8e251f7e4dc8b108ae2" Selector="&lt;html app='chrome.exe' omit:title='YouTube' /&gt;" WaitForReady="INTERACTIVE" />
+    <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open_Browser_Activity" sap:VirtualizedContainerService.HintSize="1134.66666666667,6854.66666666667" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="[in_URL]">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="964,6459" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Load_YouTube_Sequence" sap:VirtualizedContainerService.HintSize="1100.66666666667,6752" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'brave.exe YouTube'" sap:VirtualizedContainerService.HintSize="922,6367" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="7a5ed9c405e02f520dc83a0b83526cf1" Selector="&lt;html app='chrome.exe' title='YouTube*' /&gt;">
+            <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach_Browser_Activity" sap:VirtualizedContainerService.HintSize="1058.66666666667,6660" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="7a5ed9c405e02f520dc83a0b83526cf1" Selector="&lt;html app='chrome.exe' title='YouTube*' /&gt;">
               <ui:BrowserScope.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="888,6221" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <Sequence DisplayName="YouTube_Search_Activity" sap:VirtualizedContainerService.HintSize="1024.66666666667,6514" sap2010:WorkflowViewState.IdRef="Sequence_2">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="ui:UiElement" Name="v_searchBarElement" />
                     </Sequence.Variables>
@@ -131,9 +130,9 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:OnUiElementAppear ContinueOnError="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="On Element Appear 'INPUT  search'" FoundElement="[v_searchBarElement]" sap:VirtualizedContainerService.HintSize="983,6424" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_2" RepeatForever="False">
+                    <ui:OnUiElementAppear ContinueOnError="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="On_Element_Appear_Activity" FoundElement="[v_searchBarElement]" sap:VirtualizedContainerService.HintSize="982.666666666667,6422" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_2" RepeatForever="False">
                       <ui:OnUiElementAppear.Body>
-                        <Sequence DisplayName="Keyword_Search_Sequence" sap:VirtualizedContainerService.HintSize="949,6248" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                        <Sequence DisplayName="Keyword_Search_Sequence" sap:VirtualizedContainerService.HintSize="948.666666666667,6246" sap2010:WorkflowViewState.IdRef="Sequence_46">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="x:String" Name="v_SearchTerm" />
                           </Sequence.Variables>
@@ -142,7 +141,7 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="907,255" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                          <ui:MultipleAssign DisplayName="Filter_Multiple_Assign_Activity" sap:VirtualizedContainerService.HintSize="906.666666666667,252.666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                             <ui:MultipleAssign.AssignOperations>
                               <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -196,7 +195,7 @@
                               </scg:List>
                             </ui:MultipleAssign.AssignOperations>
                           </ui:MultipleAssign>
-                          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  search'" EmptyField="False" sap:VirtualizedContainerService.HintSize="907,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" SendWindowMessages="False" SimulateType="True" Text="[v_SearchTerm]">
+                          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  search'" EmptyField="False" sap:VirtualizedContainerService.HintSize="906.666666666667,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" SendWindowMessages="False" SimulateType="True" Text="[v_SearchTerm]">
                             <ui:TypeInto.Target>
                               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f9fd8396-23b7-4ad5-936a-cea8ef12a613" InformativeScreenshot="771b7e2cad1d6adfdd363271d35433bc" Selector="&lt;html app='chrome.exe' title='*YouTube' /&gt;&lt;webctrl tag='INPUT' /&gt;" WaitForReady="COMPLETE">
                                 <ui:Target.TimeoutMS>
