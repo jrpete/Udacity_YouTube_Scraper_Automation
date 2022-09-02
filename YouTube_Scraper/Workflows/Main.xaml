@@ -1,4 +1,12 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="868,609.333333333333" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="IO_DTResults" Type="InOutArgument(sd:DataTable)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1511,827</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -60,7 +68,7 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main_Workflow_Sequence" sap:VirtualizedContainerService.HintSize="421.333333333333,544.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main_Workflow_Sequence" sap:VirtualizedContainerService.HintSize="421,691" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="v_SearchTerms" />
       <Variable x:TypeArguments="x:String" Name="v_UploadDate" />
@@ -71,13 +79,20 @@
       <Variable x:TypeArguments="x:String" Name="v_DataPath" />
       <Variable x:TypeArguments="x:Int32" Name="v_SearchCount" />
       <Variable x:TypeArguments="sd:DataTable" Name="v_FormDT" />
+      <Variable x:TypeArguments="x:String" Name="v_Title" />
+      <Variable x:TypeArguments="x:String" Name="v_Creator" />
+      <Variable x:TypeArguments="x:String" Name="v_VerifiedStatus" />
+      <Variable x:TypeArguments="x:String" Name="v_WatchCount" />
+      <Variable x:TypeArguments="x:String" Name="v_Description" />
+      <Variable x:TypeArguments="s:String[]" Name="v_TagList" />
+      <Variable x:TypeArguments="sd:DataTable" Name="v_ResultsDT" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Invoke Enter Form Process Workflow" DisplayName="Invoke Enter_Form_Process workflow" sap:VirtualizedContainerService.HintSize="379.333333333333,144.666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="YouTube_Scraper\Workflows\Enter_Form_Process.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Invoke Enter Form Process Workflow" DisplayName="Invoke Enter_Form_Process workflow" sap:VirtualizedContainerService.HintSize="379,143" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="YouTube_Scraper\Workflows\Enter_Form_Process.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <OutArgument x:TypeArguments="x:String" x:Key="out_Features">[v_Features]</OutArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="out_Duration">[v_Duration]</OutArgument>
@@ -87,7 +102,6 @@
         <OutArgument x:TypeArguments="x:String" x:Key="out_Type">[v_Type]</OutArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="out_SearchTerms">[v_searchTerms]</OutArgument>
         <OutArgument x:TypeArguments="x:Int32" x:Key="out_SearchCount">[v_SearchCount]</OutArgument>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_FormDT">[v_FormDT]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -95,7 +109,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Load_YouTube_Process workflow" sap:VirtualizedContainerService.HintSize="379.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="YouTube_Scraper\Workflows\Load_YouTube_Process.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Load_YouTube_Process workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="YouTube_Scraper\Workflows\Load_YouTube_Process.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_URL">https://www.youtube.com/</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_SearchTerm">[v_SearchTerms]</InArgument>
@@ -106,9 +120,24 @@
         <InArgument x:TypeArguments="x:String" x:Key="in_SortBy">[v_SortBy]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Scrape_Video_Process workflow" sap:VirtualizedContainerService.HintSize="379.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="YouTube_Scraper\Workflows\Scrape_Video_Process.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Scrape_Video_Process workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="YouTube_Scraper\Workflows\Scrape_Video_Process.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:Int32" x:Key="in_SearchCount">[v_SearchCount]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_Title">[v_Title]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_Creator">[v_Creator]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_VerifiedStatus">[v_VerifiedStatus]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_WatchCount">[v_WatchCount]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_Description">[v_Description]</OutArgument>
+        <OutArgument x:TypeArguments="s:String[]" x:Key="out_TagList">[v_TagList]</OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_ResultsDT">[IO_DTResults]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="YouTube_Scraper\Workflows\Post_Data_To_Orchestrator.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_ResultsDT">
+          <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="IO_DTResults" />
+        </InArgument>
+        <OutArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)" x:Key="out_QueueItems" />
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
   </Sequence>
