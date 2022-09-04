@@ -90,7 +90,11 @@
       <Variable x:TypeArguments="x:String" Name="v_Description" />
       <Variable x:TypeArguments="x:String" Name="v_CreationDate" />
       <Variable x:TypeArguments="x:Int32" Default="[in_SearchCount]" Name="v_SearchCount" />
-      <Variable x:TypeArguments="x:Int32" Default="1" Name="v_Counter" />
+      <Variable x:TypeArguments="x:Int32" Name="v_Counter">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:Int32" Value="1" />
+        </Variable.Default>
+      </Variable>
       <Variable x:TypeArguments="sd:DataTable" Name="v_ResultsDT" />
       <Variable x:TypeArguments="x:String" Name="v_Tags" />
       <Variable x:TypeArguments="x:Boolean" Name="v_VerifiedStatusBool" />
@@ -197,7 +201,7 @@
                   </ui:GetValue>
                   <ui:GetValue ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Scrapes the Watch Count attribute from the Search Result" DisplayName="Get Result Watch Count" sap:VirtualizedContainerService.HintSize="653,110" sap2010:WorkflowViewState.IdRef="GetValue_2">
                     <ui:GetValue.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bab93100-c32a-47b7-b2de-b35a01f9d5bf" Selector="[String.Format(&quot;&lt;html app='chrome.exe' title='* - YouTube' /&gt;&lt;webctrl css-selector='body&amp;gt;ytd-app&amp;gt;div&amp;gt;ytd-page-manager&amp;gt;ytd-search&amp;gt;div&amp;gt;ytd-two-column-search-results-renderer&amp;gt;div&amp;gt;ytd-section-list-renderer&amp;gt;div&amp;gt;ytd-item-section-renderer&amp;gt;div&amp;gt;ytd-video-renderer&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ytd-video-meta-block&amp;gt;div&amp;gt;div' id='metadata-line' parentid='metadata' tag='DIV' idx='{0}' /&gt;&lt;webctrl aaname='*' css-selector='body&amp;gt;ytd-app&amp;gt;div&amp;gt;ytd-page-manager&amp;gt;ytd-search&amp;gt;div&amp;gt;ytd-two-column-search-results-renderer&amp;gt;div&amp;gt;ytd-section-list-renderer&amp;gt;div&amp;gt;ytd-item-section-renderer&amp;gt;div&amp;gt;ytd-video-renderer&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ytd-video-meta-block&amp;gt;div&amp;gt;div&amp;gt;span' parentid='metadata-line' tag='SPAN' /&gt;&quot;, v_Counter)]">
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bab93100-c32a-47b7-b2de-b35a01f9d5bf" Selector="&lt;html app='chrome.exe' title='China - YouTube' /&gt;&lt;webctrl aaname='139 watching' parentid='metadata-line' tag='SPAN' /&gt;">
                         <ui:Target.TimeoutMS>
                           <InArgument x:TypeArguments="x:Int32" />
                         </ui:Target.TimeoutMS>
