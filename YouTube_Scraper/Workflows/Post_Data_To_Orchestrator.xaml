@@ -230,7 +230,7 @@
               </ui:MultipleAssign.AssignOperations>
             </ui:MultipleAssign>
             <ui:LogMessage DisplayName="Log_Successful_New_Queue_Items" sap:VirtualizedContainerService.HintSize="431,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[out_QueueTitle + &quot; &amp;&quot; + &#xA;out_QueueCreator + &quot;&amp;&quot; + &#xA;out_QueueVerifiedStatus + &quot;&amp;&quot; + &#xA;out_QueueWatchCount + &quot;&amp;&quot; +&#xA;out_QueueTags.ToString + &quot;&amp;&quot; + &#xA;out_QueueDescription]" />
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="431,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Transction ID: &quot; + row.ItemKey.ToString + &quot; succesfully retrieved.&quot;]" />
+            <ui:LogMessage DisplayName="Log_Transaction_ID" sap:VirtualizedContainerService.HintSize="431,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Transction ID: &quot; + row.ItemKey.ToString + &quot; succesfully retrieved.&quot;]" />
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>
