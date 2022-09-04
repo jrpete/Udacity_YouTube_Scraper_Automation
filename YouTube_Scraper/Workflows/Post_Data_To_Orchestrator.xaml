@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1511,2009</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>888,2309</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Post_Data_To_Orchestrator_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -72,10 +72,9 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Post_Data_To_Orchestrator" sap:VirtualizedContainerService.HintSize="551,1944" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Post Result to Orchestrator Queue, Retrieve Result from Queue to confiirm that they were successfully posted" DisplayName="Post_Data_To_Orchestrator" sap:VirtualizedContainerService.HintSize="551,2244" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="out_QueueTitle" />
       <Variable x:TypeArguments="x:String" Name="out_QueueVerifiedStatus" />
@@ -91,16 +90,36 @@
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:RaiseAlert TimeoutMS="{x:Null}" DisplayName="Raise Alert" sap:VirtualizedContainerService.HintSize="509,79" sap2010:WorkflowViewState.IdRef="RaiseAlert_1" Notification="Adding item to Queue" Severity="Info" />
-    <ui:BulkAddQueueItems TimeoutMS="{x:Null}" CommitType="ProcessAllIndependently" DisplayName="Bulk Add Queue Items" sap:VirtualizedContainerService.HintSize="509,132" sap2010:WorkflowViewState.IdRef="BulkAddQueueItems_1" QueueItemsDataTable="[in_ResultsDT]" QueueName="YouTube_Scraper_Queue" />
-    <ui:WaitQueueItem PollTimeMS="{x:Null}" Reference="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Wait Queue Item" FilterStrategy="StartsWith" sap:VirtualizedContainerService.HintSize="509,79" sap2010:WorkflowViewState.IdRef="WaitQueueItem_1" QueueName="YouTube_Scraper_Queue" />
-    <ui:GetQueueItems Duration="{x:Null}" From="{x:Null}" Priority="{x:Null}" Reference="{x:Null}" Skip="{x:Null}" TimeoutMS="{x:Null}" To="{x:Null}" Top="{x:Null}" DisplayName="Get_New_Successful_Items" FilterStrategy="StartsWith" sap:VirtualizedContainerService.HintSize="509,79" sap2010:WorkflowViewState.IdRef="GetQueueItems_1" QueueItemStates="New, Successful" QueueName="YouTube_Scraper_Queue" Result="[out_SuccessNewQueueItems]" />
-    <ui:GetQueueItems Duration="{x:Null}" From="{x:Null}" Priority="{x:Null}" Reference="{x:Null}" Skip="{x:Null}" TimeoutMS="{x:Null}" To="{x:Null}" Top="{x:Null}" DisplayName="Get_In_Progress_Items" FilterStrategy="StartsWith" sap:VirtualizedContainerService.HintSize="509,79" sap2010:WorkflowViewState.IdRef="GetQueueItems_2" QueueItemStates="InProgress" QueueName="YouTube_Scraper_Queue" Result="[out_InProgressQueueItems]" />
-    <ui:GetQueueItems Duration="{x:Null}" From="{x:Null}" Priority="{x:Null}" Reference="{x:Null}" Skip="{x:Null}" TimeoutMS="{x:Null}" To="{x:Null}" Top="{x:Null}" DisplayName="Get_Failed_Items" FilterStrategy="StartsWith" sap:VirtualizedContainerService.HintSize="509,79" sap2010:WorkflowViewState.IdRef="GetQueueItems_3" QueueItemStates="Failed" QueueName="YouTube_Scraper_Queue" Result="[out_FailQueueItems]" />
-    <ui:GetQueueItems Duration="{x:Null}" From="{x:Null}" Priority="{x:Null}" Reference="{x:Null}" Skip="{x:Null}" TimeoutMS="{x:Null}" To="{x:Null}" Top="{x:Null}" DisplayName="Get_Delete_Items" FilterStrategy="StartsWith" sap:VirtualizedContainerService.HintSize="509,79" sap2010:WorkflowViewState.IdRef="GetQueueItems_4" QueueItemStates="Deleted" QueueName="YouTube_Scraper_Queue" Result="[out_DeleteQueueItems]" />
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="509,193" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+    <ui:RaiseAlert TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Create alert before adding item to Queue" DisplayName="Add_Item_Alert" sap:VirtualizedContainerService.HintSize="509,110" sap2010:WorkflowViewState.IdRef="RaiseAlert_1" Notification="Adding item to Queue" Severity="Info">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:RaiseAlert>
+    <ui:BulkAddQueueItems TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Adds data Table to Queue" CommitType="ProcessAllIndependently" DisplayName="Add_Bulk_Items_To_Queue" sap:VirtualizedContainerService.HintSize="509,163" sap2010:WorkflowViewState.IdRef="BulkAddQueueItems_1" QueueItemsDataTable="[in_ResultsDT]" QueueName="YouTube_Scraper_Queue">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:BulkAddQueueItems>
+    <Sequence sap2010:Annotation.AnnotationText="Get New/Successful, In Progress, Failed, and Deleted items from the Queue" DisplayName="Get_Queue_Items_Sequence" sap:VirtualizedContainerService.HintSize="509,570" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:GetQueueItems Duration="{x:Null}" From="{x:Null}" Priority="{x:Null}" Reference="{x:Null}" Skip="{x:Null}" TimeoutMS="{x:Null}" To="{x:Null}" Top="{x:Null}" DisplayName="Get_New_Successful_Items" FilterStrategy="StartsWith" sap:VirtualizedContainerService.HintSize="284,79" sap2010:WorkflowViewState.IdRef="GetQueueItems_1" QueueItemStates="New, Successful" QueueName="YouTube_Scraper_Queue" Result="[out_SuccessNewQueueItems]" />
+      <ui:GetQueueItems Duration="{x:Null}" From="{x:Null}" Priority="{x:Null}" Reference="{x:Null}" Skip="{x:Null}" TimeoutMS="{x:Null}" To="{x:Null}" Top="{x:Null}" DisplayName="Get_In_Progress_Items" FilterStrategy="StartsWith" sap:VirtualizedContainerService.HintSize="284,79" sap2010:WorkflowViewState.IdRef="GetQueueItems_2" QueueItemStates="InProgress" QueueName="YouTube_Scraper_Queue" Result="[out_InProgressQueueItems]" />
+      <ui:GetQueueItems Duration="{x:Null}" From="{x:Null}" Priority="{x:Null}" Reference="{x:Null}" Skip="{x:Null}" TimeoutMS="{x:Null}" To="{x:Null}" Top="{x:Null}" DisplayName="Get_Failed_Items" FilterStrategy="StartsWith" sap:VirtualizedContainerService.HintSize="284,79" sap2010:WorkflowViewState.IdRef="GetQueueItems_3" QueueItemStates="Failed" QueueName="YouTube_Scraper_Queue" Result="[out_FailQueueItems]" />
+      <ui:GetQueueItems Duration="{x:Null}" From="{x:Null}" Priority="{x:Null}" Reference="{x:Null}" Skip="{x:Null}" TimeoutMS="{x:Null}" To="{x:Null}" Top="{x:Null}" DisplayName="Get_Delete_Items" FilterStrategy="StartsWith" sap:VirtualizedContainerService.HintSize="284,79" sap2010:WorkflowViewState.IdRef="GetQueueItems_4" QueueItemStates="Deleted" QueueName="YouTube_Scraper_Queue" Result="[out_DeleteQueueItems]" />
+    </Sequence>
+    <ui:MultipleAssign sap2010:Annotation.AnnotationText="Assign Queue Items to Arguments" DisplayName="Assign_Queue_items" sap:VirtualizedContainerService.HintSize="509,224" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
@@ -137,20 +156,26 @@
           </ui:AssignOperation>
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <ui:ForEach x:TypeArguments="ui:QueueItem" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="509,733" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[out_SuccessNewQueueItems]">
+    <ui:ForEach x:TypeArguments="ui:QueueItem" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Iterate through New / Successful Items in the Queue and assigns them to variables" DisplayName="For_Each_Item_in_New_Successful_Queue" sap:VirtualizedContainerService.HintSize="509,883" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[out_SuccessNewQueueItems]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="ui:QueueItem">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:QueueItem" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="473,609" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="473,728" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,255" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+            <ui:WaitQueueItem Reference="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Wait_Queue_Item_Available" FilterStrategy="StartsWith" sap:VirtualizedContainerService.HintSize="431,79" sap2010:WorkflowViewState.IdRef="WaitQueueItem_1" PollTimeMS="1000" QueueName="YouTube_Scraper_Queue" />
+            <ui:MultipleAssign DisplayName="Assign_Queue_Items" sap:VirtualizedContainerService.HintSize="431,255" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
               <ui:MultipleAssign.AssignOperations>
                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -204,11 +229,16 @@
                 </scg:List>
               </ui:MultipleAssign.AssignOperations>
             </ui:MultipleAssign>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="431,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[out_QueueTitle + &quot; &amp;&quot; + &#xA;out_QueueCreator + &quot;&amp;&quot; + &#xA;out_QueueVerifiedStatus + &quot;&amp;&quot; + &#xA;out_QueueWatchCount + &quot;&amp;&quot; +&#xA;out_QueueTags.ToString + &quot;&amp;&quot; + &#xA;out_QueueDescription]" />
+            <ui:LogMessage DisplayName="Log_Successful_New_Queue_Items" sap:VirtualizedContainerService.HintSize="431,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[out_QueueTitle + &quot; &amp;&quot; + &#xA;out_QueueCreator + &quot;&amp;&quot; + &#xA;out_QueueVerifiedStatus + &quot;&amp;&quot; + &#xA;out_QueueWatchCount + &quot;&amp;&quot; +&#xA;out_QueueTags.ToString + &quot;&amp;&quot; + &#xA;out_QueueDescription]" />
             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="431,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Transction ID: &quot; + row.ItemKey.ToString + &quot; succesfully retrieved.&quot;]" />
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
   </Sequence>
 </Activity>
