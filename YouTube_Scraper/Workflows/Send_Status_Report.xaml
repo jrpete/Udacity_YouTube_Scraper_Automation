@@ -10,7 +10,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>888,1360</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>888,1349</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Send_Status_Report_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="54">
@@ -87,7 +87,7 @@
       <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Send an email with the Input form Log File, Search Result file and summary statistics fro the UiPath Orchestrator Queue" DisplayName="Send_Status_Report" sap:VirtualizedContainerService.HintSize="594,1295" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Send an email with the Input form Log File, Search Result file and summary statistics fro the UiPath Orchestrator Queue" DisplayName="Send_Status_Report" sap:VirtualizedContainerService.HintSize="594,1284" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="[&quot;YouTube_Scraper/Status_Reports/YouTube_Scraper_Status_Report&quot;+DateTime.Now.ToString(&quot;MM_dd_yyy_HH_mm&quot;)+&quot;.csv&quot;]" Name="v_StatusReportPath" />
     </Sequence.Variables>
@@ -104,7 +104,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:WriteCsvFile>
-    <umab:GmailApplicationCard ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" Account="ytscrapertest32923@gmail.com" sap2010:Annotation.AnnotationText="" DisplayName="Send_Email_Through_gmail" EmailAddress="ytscrapertest32923@gmail.com" sap:VirtualizedContainerService.HintSize="552,938" sap2010:WorkflowViewState.IdRef="GmailApplicationCard_2" Timeout="90" UseConnectionService="False">
+    <umab:GmailApplicationCard ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" Account="ytscrapertest32923@gmail.com" sap2010:Annotation.AnnotationText="" DisplayName="Send_Email_Through_gmail" EmailAddress="ytscrapertest32923@gmail.com" sap:VirtualizedContainerService.HintSize="552,927" sap2010:WorkflowViewState.IdRef="GmailApplicationCard_2" Timeout="90" UseConnectionService="False">
       <umab:GmailApplicationCard.Body>
         <ActivityAction x:TypeArguments="um:IMailQuickHandle">
           <ActivityAction.Argument>
