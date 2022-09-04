@@ -12,7 +12,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>888,3299</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>868,3223</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Scrape_Video_Process_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="58">
@@ -78,10 +78,9 @@
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Scrape_Video_Process" sap:VirtualizedContainerService.HintSize="849,3234" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Scrape_Video_Process" sap:VirtualizedContainerService.HintSize="849,3158" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="v_RecordText" />
       <Variable x:TypeArguments="x:String" Name="v_Title" />
@@ -108,22 +107,22 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:BuildDataTable>
-    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach_Browser_Window" sap:VirtualizedContainerService.HintSize="807,3012" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="603672fbfb195c6818d585fbe5508a67" Selector="&lt;wnd app='chrome.exe' omit:cls='Chrome_WidgetWin_1' title='* - YouTube - Google Chrome' /&gt;">
+    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach_Browser_Window" sap:VirtualizedContainerService.HintSize="807,2936" sap2010:WorkflowViewState.IdRef="WindowScope_1" Selector="&lt;wnd app='chrome.exe' omit:cls='Chrome_WidgetWin_1' title='* - YouTube - Google Chrome' /&gt;">
       <ui:WindowScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <ui:InterruptibleDoWhile sap2010:Annotation.AnnotationText="Iterate through YouTube Search Results and scrape conents based on user inputs" Condition="[v_Counter &lt;= v_searchCount]" DisplayName="Do_While_Search_Result_Not_Zero" sap:VirtualizedContainerService.HintSize="773,2866" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+          <ui:InterruptibleDoWhile sap2010:Annotation.AnnotationText="Iterate through YouTube Search Results and scrape conents based on user inputs" Condition="[v_Counter &lt;= v_searchCount]" DisplayName="Do_While_Search_Result_Not_Zero" sap:VirtualizedContainerService.HintSize="773,2828" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
             <ui:InterruptibleDoWhile.Body>
-              <Sequence sap2010:Annotation.AnnotationText="Iterate through each  video in the YouTube Search Results" DisplayName="Iterate_Through_Search_Results_Sequence" sap:VirtualizedContainerService.HintSize="737,2670" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <Sequence sap2010:Annotation.AnnotationText="Iterate through each  video in the YouTube Search Results" DisplayName="Iterate_Through_Search_Results_Sequence" sap:VirtualizedContainerService.HintSize="737,2632" sap2010:WorkflowViewState.IdRef="Sequence_3">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Sequence sap2010:Annotation.AnnotationText="Scrapes the Video Title, Watch Count, Creator, Verified Status, Tags and Description from each video and adds it to a Data Table" DisplayName="Scrape_Search_Resultss" sap:VirtualizedContainerService.HintSize="695,2191" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <Sequence sap2010:Annotation.AnnotationText="Scrapes the Video Title, Watch Count, Creator, Verified Status, Tags and Description from each video and adds it to a Data Table" DisplayName="Scrape_Search_Resultss" sap:VirtualizedContainerService.HintSize="695,2153" sap2010:WorkflowViewState.IdRef="Sequence_5">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="v_TagStrings" />
                     <Variable x:TypeArguments="x:String" Name="v_Search_Results" />
@@ -135,12 +134,12 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:LogMessage DisplayName="Log_Count" sap:VirtualizedContainerService.HintSize="653,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Scraping Result &quot; + v_Counter.ToString + &quot; of  &quot; + v_searchCount.ToString]" />
-                  <ui:GetAttribute ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Scrape the Search Result Text" Attribute="innertext" DisplayName="Get_Search_Result_Text" sap:VirtualizedContainerService.HintSize="653,233" sap2010:WorkflowViewState.IdRef="GetAttribute_1">
+                  <ui:GetAttribute ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Scrape the Search Result Text" Attribute="innertext" DisplayName="Get_Search_Result_Text" sap:VirtualizedContainerService.HintSize="653,195" sap2010:WorkflowViewState.IdRef="GetAttribute_1">
                     <ui:GetAttribute.Result>
                       <OutArgument x:TypeArguments="x:String">[v_RecordText]</OutArgument>
                     </ui:GetAttribute.Result>
                     <ui:GetAttribute.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1c8f1173-0942-448c-ade7-be3552bb07c1" InformativeScreenshot="c8fb2df0441724627ccda3be997a208d" Selector="[String.Format(&quot;&lt;html app='chrome.exe' title='* - YouTube' /&gt;&lt;webctrl css-selector='body&amp;gt;ytd-app&amp;gt;div&amp;gt;ytd-page-manager&amp;gt;ytd-search&amp;gt;div&amp;gt;ytd-two-column-search-results-renderer&amp;gt;div&amp;gt;ytd-section-list-renderer&amp;gt;div&amp;gt;ytd-item-section-renderer&amp;gt;div&amp;gt;ytd-video-renderer&amp;gt;div&amp;gt;div' idx='{0}' parentid='dismissible' tag='DIV' /&gt;&quot;, v_Counter)]">
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1c8f1173-0942-448c-ade7-be3552bb07c1" Selector="[String.Format(&quot;&lt;html app='chrome.exe' title='* - YouTube' /&gt;&lt;webctrl css-selector='body&amp;gt;ytd-app&amp;gt;div&amp;gt;ytd-page-manager&amp;gt;ytd-search&amp;gt;div&amp;gt;ytd-two-column-search-results-renderer&amp;gt;div&amp;gt;ytd-section-list-renderer&amp;gt;div&amp;gt;ytd-item-section-renderer&amp;gt;div&amp;gt;ytd-video-renderer&amp;gt;div&amp;gt;div' idx='{0}' parentid='dismissible' tag='DIV' /&gt;&quot;, v_Counter)]">
                         <ui:Target.TimeoutMS>
                           <InArgument x:TypeArguments="x:Int32" />
                         </ui:Target.TimeoutMS>
