@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>888,1417</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>868,1417</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -66,6 +66,7 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Main_Workflow_Sequence" sap:VirtualizedContainerService.HintSize="421,1352" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -131,14 +132,33 @@
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Extracts Search Result Title Description, View Count, Creator, Creator Verified Status, and Tags from each search result&#xD;&#xA;&#xD;&#xA;Pre: YouTube Loaded, Result Filtered&#xD;&#xA;Post: Extracts each search result,&#xD;&#xA;Adds results to DataTable" DisplayName="Invoke Scrape_Video_Process workflow" sap:VirtualizedContainerService.HintSize="379,214" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="YouTube_Scraper\Workflows\Scrape_Results_Process.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:Int32" x:Key="in_SearchCount">[v_SearchCount]</InArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_Title">[v_Title]</OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_Creator">[v_Creator]</OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_VerifiedStatus">[v_VerifiedStatus]</OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_WatchCount">[v_WatchCount]</OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_Description">[v_Description]</OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_TagList">[v_TagList]</OutArgument>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_ResultsDT">[IO_DTResults]</OutArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_SearchCount">
+          <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="v_SearchCount" />
+        </InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_Title">
+          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_Title" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_Creator">
+          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_Creator" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_VerifiedStatus">
+          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_VerifiedStatus" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_WatchCount">
+          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_WatchCount" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_Description">
+          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_Description" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_TagList">
+          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_TagList" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_ResultsDT">
+          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="IO_DTResults" />
+        </OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Feature">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="v_Features" />
+        </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
