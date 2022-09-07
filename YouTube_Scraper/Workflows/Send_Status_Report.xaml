@@ -6,11 +6,12 @@
     <x:Property Name="in_DeleteQueueItemsCount" Type="InArgument(x:String)" />
     <x:Property Name="in_InProgressQueueItemsCount" Type="InArgument(x:String)" />
     <x:Property Name="in_SuccessTransactionCount" Type="InArgument(x:String)" />
+    <x:Property Name="in_EmailAddress" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>888,1349</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1508,1349</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Send_Status_Report_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="54">
@@ -122,7 +123,7 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <umab:SendMailX Bcc="{x:Null}" Cc="{x:Null}" HtmlBodyFromText="{x:Null}" ReplyTo="{x:Null}" Account="[Gmail]" sap2010:Annotation.AnnotationText="Send emai with attachments and summary statistics in body" Body="[&quot;YouTube Scraper Automation Finished at: &quot; + System.DateTime.Now.ToString + &quot; .Please see attached Log File and Status Report for Automation Results. &quot; + Environment.NewLine + Environment.NewLine +&#xA;&quot;UiPath Orchestrator Queue Contents are as follows: &quot; + Environment.NewLine + Environment.NewLine +&#xA;&quot;Failed Items in Queue: &quot; + in_FailQueueItemsCount + Environment.NewLine +&#xA;&quot;Deleted Items in Queue: &quot; + in_DeleteQueueItemsCount + Environment.NewLine +&#xA;&quot;In Progress Items in Queue: &quot; + in_InProgressQueueItemsCount + Environment.NewLine +&#xA;&quot;Success Items in Queue: &quot; + in_SuccessTransactionCount]" BodyType="Text" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="434,533" sap2010:WorkflowViewState.IdRef="SendMailX_1" Importance="Normal" IsDraft="False" MaxBodyDocumentSizeMB="2" Sensitivity="Normal" Subject="[&quot;YouTube Scraper Automation Report: &quot; +DateTime.Now.ToString(&quot;MM_dd_yyy_HH_mm&quot;)+&quot;.csv&quot;]" To="petersoninquiries@gmail.com" UseDocumentAsBody="False">
+              <umab:SendMailX Bcc="{x:Null}" Cc="{x:Null}" HtmlBodyFromText="{x:Null}" ReplyTo="{x:Null}" Account="[Gmail]" sap2010:Annotation.AnnotationText="Send emai with attachments and summary statistics in body" Body="[&quot;YouTube Scraper Automation Finished at: &quot; + System.DateTime.Now.ToString + &quot; .Please see attached Log File and Status Report for Automation Results. &quot; + Environment.NewLine + Environment.NewLine +&#xA;&quot;UiPath Orchestrator Queue Contents are as follows: &quot; + Environment.NewLine + Environment.NewLine +&#xA;&quot;Failed Items in Queue: &quot; + in_FailQueueItemsCount + Environment.NewLine +&#xA;&quot;Deleted Items in Queue: &quot; + in_DeleteQueueItemsCount + Environment.NewLine +&#xA;&quot;In Progress Items in Queue: &quot; + in_InProgressQueueItemsCount + Environment.NewLine +&#xA;&quot;Success Items in Queue: &quot; + in_SuccessTransactionCount]" BodyType="Text" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="434,533" sap2010:WorkflowViewState.IdRef="SendMailX_1" Importance="Normal" IsDraft="False" MaxBodyDocumentSizeMB="2" Sensitivity="Normal" Subject="[&quot;YouTube Scraper Automation Report: &quot; +DateTime.Now.ToString(&quot;MM_dd_yyy_HH_mm&quot;)+&quot;.csv&quot;]" To="[in_EmailAddress]" UseDocumentAsBody="False">
                 <umab:SendMailX.Files>
                   <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
                     <InArgument x:TypeArguments="x:String">[v_StatusReportPath]</InArgument>
