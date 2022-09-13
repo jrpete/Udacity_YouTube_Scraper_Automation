@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Enter_Form_Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ufa="clr-namespace:UiPath.Form.Activities;assembly=UiPath.Form.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Enter_Form_Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:c="clr-namespace:CsvHelper;assembly=CsvHelper" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:si="clr-namespace:System.IO;assembly=System" xmlns:ufa="clr-namespace:UiPath.Form.Activities;assembly=UiPath.Form.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="out_Features" Type="OutArgument(x:String)" />
     <x:Property Name="out_Duration" Type="OutArgument(x:String)" />
@@ -13,7 +13,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1508,1879</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1425,2245</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Enter_Form_Process_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -48,6 +48,7 @@
       <x:String>System.Xml.Serialization</x:String>
       <x:String>UiPath.CSV</x:String>
       <x:String>UiPath.CSV.Activities</x:String>
+      <x:String>CsvHelper</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -79,9 +80,10 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>CsvHelper</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Prompts the user to fill out a form to be used as input parameters in the workflows that search and scrape YouTube data" DisplayName="Enter_Form_Process" sap:VirtualizedContainerService.HintSize="553,1814" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Prompts the user to fill out a form to be used as input parameters in the workflows that search and scrape YouTube data" DisplayName="Enter_Form_Process" sap:VirtualizedContainerService.HintSize="591,2180" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="v_SearchTerms" />
       <Variable x:TypeArguments="x:String" Name="v_UploadDate" />
@@ -101,7 +103,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap2010:Annotation.AnnotationText="Create a reference to a local log file" sap:VirtualizedContainerService.HintSize="511,91" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign sap2010:Annotation.AnnotationText="Create a reference to a local log file" sap:VirtualizedContainerService.HintSize="549,91" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[v_LogFilePath]</OutArgument>
       </Assign.To>
@@ -114,168 +116,211 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <ufa:FormActivity CreateFormActivityFileName="{x:Null}" CreateFormActivityFilePath="{x:Null}" Dismissed="{x:Null}" FormFieldsInputData="{x:Null}" FormFieldsOutputData="{x:Null}" FormTitle="{x:Null}" IconPath="{x:Null}" LocalCSSFilePath="{x:Null}" SelectedButton="{x:Null}" TimeoutInSeconds="{x:Null}" WindowPositionLeft="{x:Null}" WindowPositionTop="{x:Null}" sap2010:Annotation.AnnotationText="Opens the Form Designer to capture the users input" CreateFormId="c56f0edc-df2f-458a-9329-85ba7f5cba9d" DisableMaximizeButton="False" DisableMinimizeButton="False" DisableSanitize="False" DisplayName="Startup_Form_Sequence" FormHeight="400" FormSchema="%[{&quot;label&quot;:&quot;Search Terms&quot;,&quot;placeholder&quot;:&quot;Please Enter a Set of Search Terms (no more than 150 characters long)&quot;,&quot;tableView&quot;:true,&quot;validate&quot;:{&quot;minLength&quot;:1,&quot;maxLength&quot;:150},&quot;key&quot;:&quot;searchTerms&quot;,&quot;type&quot;:&quot;textarea&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Email Address&quot;,&quot;placeholder&quot;:&quot;Enter an email address to use in the automation&quot;,&quot;tableView&quot;:true,&quot;validate&quot;:{&quot;required&quot;:true},&quot;key&quot;:&quot;emailAddress&quot;,&quot;type&quot;:&quot;email&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Upload Date&quot;,&quot;widget&quot;:&quot;choicesjs&quot;,&quot;placeholder&quot;:&quot;Choose an Upload Date&quot;,&quot;tableView&quot;:true,&quot;data&quot;:{&quot;values&quot;:[{&quot;label&quot;:&quot;None&quot;,&quot;value&quot;:&quot;None&quot;},{&quot;label&quot;:&quot;Last hour&quot;,&quot;value&quot;:&quot;Last hour&quot;},{&quot;label&quot;:&quot;Today&quot;,&quot;value&quot;:&quot;Today&quot;},{&quot;label&quot;:&quot;This week&quot;,&quot;value&quot;:&quot;This week&quot;},{&quot;label&quot;:&quot;This month&quot;,&quot;value&quot;:&quot;This month&quot;},{&quot;label&quot;:&quot;This year&quot;,&quot;value&quot;:&quot;This year&quot;}]},&quot;validate&quot;:{&quot;required&quot;:true},&quot;key&quot;:&quot;uploadDate&quot;,&quot;type&quot;:&quot;select&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Type&quot;,&quot;widget&quot;:&quot;choicesjs&quot;,&quot;placeholder&quot;:&quot;Choose a Media Type&quot;,&quot;tableView&quot;:true,&quot;data&quot;:{&quot;values&quot;:[{&quot;label&quot;:&quot;None&quot;,&quot;value&quot;:&quot;None&quot;},{&quot;label&quot;:&quot;Video&quot;,&quot;value&quot;:&quot;Video&quot;},{&quot;label&quot;:&quot;Channel&quot;,&quot;value&quot;:&quot;Channel&quot;},{&quot;label&quot;:&quot;Playlist&quot;,&quot;value&quot;:&quot;Playlist&quot;},{&quot;label&quot;:&quot;Movie&quot;,&quot;value&quot;:&quot;Movie&quot;}]},&quot;validate&quot;:{&quot;required&quot;:true},&quot;key&quot;:&quot;type&quot;,&quot;type&quot;:&quot;select&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Duration&quot;,&quot;widget&quot;:&quot;choicesjs&quot;,&quot;placeholder&quot;:&quot;Choose a Duration Length&quot;,&quot;tableView&quot;:true,&quot;data&quot;:{&quot;values&quot;:[{&quot;label&quot;:&quot;None&quot;,&quot;value&quot;:&quot;None&quot;},{&quot;label&quot;:&quot;Under 4 minutes&quot;,&quot;value&quot;:&quot;Under 4 minutes&quot;},{&quot;label&quot;:&quot;4 - 20 minutes&quot;,&quot;value&quot;:&quot;4 - 20 minutes&quot;},{&quot;label&quot;:&quot;Over 20 minutes&quot;,&quot;value&quot;:&quot;Over 20 minutes&quot;}]},&quot;validate&quot;:{&quot;required&quot;:true},&quot;key&quot;:&quot;duration&quot;,&quot;type&quot;:&quot;select&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Features&quot;,&quot;widget&quot;:&quot;choicesjs&quot;,&quot;placeholder&quot;:&quot;Choose a Feature Type&quot;,&quot;tableView&quot;:true,&quot;data&quot;:{&quot;values&quot;:[{&quot;label&quot;:&quot;None&quot;,&quot;value&quot;:&quot;None&quot;},{&quot;label&quot;:&quot;Live&quot;,&quot;value&quot;:&quot;Live&quot;},{&quot;label&quot;:&quot;4K&quot;,&quot;value&quot;:&quot;4K&quot;},{&quot;label&quot;:&quot;HD&quot;,&quot;value&quot;:&quot;HD&quot;},{&quot;label&quot;:&quot;Subtitles/CC&quot;,&quot;value&quot;:&quot;Subtitles/CC&quot;},{&quot;label&quot;:&quot;Creative Commons&quot;,&quot;value&quot;:&quot;Creative Commons&quot;},{&quot;label&quot;:&quot;360°&quot;,&quot;value&quot;:&quot;360°&quot;},{&quot;label&quot;:&quot;HDR&quot;,&quot;value&quot;:&quot;HDR&quot;},{&quot;label&quot;:&quot;Location&quot;,&quot;value&quot;:&quot;Location&quot;},{&quot;label&quot;:&quot;Purchased&quot;,&quot;value&quot;:&quot;Purchased&quot;},{&quot;label&quot;:&quot;VR180&quot;,&quot;value&quot;:&quot;VR180&quot;},{&quot;label&quot;:&quot;3D&quot;,&quot;value&quot;:&quot;3D&quot;}]},&quot;validate&quot;:{&quot;required&quot;:true},&quot;key&quot;:&quot;features&quot;,&quot;type&quot;:&quot;select&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Sort By&quot;,&quot;widget&quot;:&quot;choicesjs&quot;,&quot;placeholder&quot;:&quot;Choose a Property to Sort By&quot;,&quot;tableView&quot;:true,&quot;data&quot;:{&quot;values&quot;:[{&quot;label&quot;:&quot;None&quot;,&quot;value&quot;:&quot;None&quot;},{&quot;label&quot;:&quot;Upload date&quot;,&quot;value&quot;:&quot;Upload date&quot;},{&quot;label&quot;:&quot;View count&quot;,&quot;value&quot;:&quot;View count&quot;},{&quot;label&quot;:&quot;Rating&quot;,&quot;value&quot;:&quot;Rating&quot;}]},&quot;key&quot;:&quot;sortBy&quot;,&quot;type&quot;:&quot;select&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Search Count (How many results do you want to query? Max 100)&quot;,&quot;placeholder&quot;:&quot;1&quot;,&quot;tableView&quot;:false,&quot;delimiter&quot;:false,&quot;requireDecimal&quot;:false,&quot;validate&quot;:{&quot;min&quot;:1,&quot;max&quot;:100},&quot;key&quot;:&quot;searchCount&quot;,&quot;type&quot;:&quot;number&quot;,&quot;input&quot;:true,&quot;defaultValue&quot;:1},{&quot;type&quot;:&quot;button&quot;,&quot;label&quot;:&quot;Submit&quot;,&quot;key&quot;:&quot;submit&quot;,&quot;disableOnInvalid&quot;:true,&quot;input&quot;:true,&quot;tableView&quot;:false}]" FormTheme="{}{&quot;Activities&quot;:[&quot;FORMS&quot;],&quot;Id&quot;:&quot;100120&quot;,&quot;Name&quot;:&quot;Default&quot;,&quot;BaseCss&quot;:&quot;../../assets/css/themes/uipath.bootstrap.min.css&quot;,&quot;ImageSrc&quot;:&quot;../../assets/themeicons/uipath.png&quot;,&quot;OverrideCssUrl&quot;:&quot;../../assets/css/themes/uipath.custom.css&quot;,&quot;UserStyleOverrides&quot;:&quot;&quot;,&quot;Properties&quot;:&quot;&quot;,&quot;IsCustomTheme&quot;:false,&quot;Version&quot;:1,&quot;ThemeVersion&quot;:1}" FormWidth="800" GenerateInputFields="True" sap:VirtualizedContainerService.HintSize="511,628" sap2010:WorkflowViewState.IdRef="FormActivity_1" IsReadOnly="False" MaxColumnsForSchemaGeneration="6" RunDoBlockFirst="False" RunInIsolatedMode="False" StartAsMinimized="False">
-      <ufa:FormActivity.Body>
-        <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
-          <Sequence sap2010:Annotation.AnnotationText="Assign variables from Startup Form outputs " DisplayName="Multiple_Assign_Sequence" sap:VirtualizedContainerService.HintSize="473,471" sap2010:WorkflowViewState.IdRef="Sequence_3">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <ui:MultipleAssign DisplayName="Multiple_Assign_Form_Variables_Sequence" sap:VirtualizedContainerService.HintSize="431,348" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
-              <ui:MultipleAssign.AssignOperations>
-                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[out_LogFilePath]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[v_LogFilePath]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[out_SearchTerms]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[v_SearchTerms]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[out_Duration]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[v_Duration]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[out_UploadDate]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[v_UploadDate]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[out_Type]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[v_Type]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[out_Features]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[v_Features]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[out_SortBy]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[v_SortBy]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:Int32">[out_SearchCount]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:Int32">[v_SearchCount]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[out_EmailAddress]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[v_EmailAddress]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                </scg:List>
-              </ui:MultipleAssign.AssignOperations>
-            </ui:MultipleAssign>
-          </Sequence>
-        </ActivityAction>
-      </ufa:FormActivity.Body>
-      <ufa:FormActivity.DelayBody>
-        <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
-          <Delay Duration="00:00:00.2500000" sap2010:WorkflowViewState.IdRef="Delay_1" />
-        </ActivityAction>
-      </ufa:FormActivity.DelayBody>
-      <ufa:FormActivity.FormFieldsCollection>
-        <OutArgument x:TypeArguments="x:String" x:Key="searchTerms">
-          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_SearchTerms" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="uploadDate">
-          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_UploadDate" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="type">
-          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_Type" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="duration">
-          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_Duration" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="features">
-          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_Features" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="sortBy">
-          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_SortBy" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="x:Int32" x:Key="searchCount">
-          <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="v_SearchCount" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="emailAddress">
-          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_EmailAddress" />
-        </OutArgument>
-      </ufa:FormActivity.FormFieldsCollection>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ufa:FormActivity>
-    <ui:BuildDataTable sap2010:Annotation.AnnotationText="Create a Data Table to store Startup Form Fields" DataTable="[v_InputDT]" DisplayName="Build_Startup_Form_DataTable_Activity" sap:VirtualizedContainerService.HintSize="511,90" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Search_Term&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;150&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Email_Address&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Upload_Date&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; default=&quot;50&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Media_Type&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; default=&quot;50&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Search_Duration&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; default=&quot;50&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Search_Features&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; default=&quot;100&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Search_Sort_By&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; default=&quot;25&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Search_Count&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; default=&quot;1&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Report_Path&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; default=&quot;500&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;">
+    <TryCatch DisplayName="Try_Startup_Form" sap:VirtualizedContainerService.HintSize="549,855" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <ufa:FormActivity CreateFormActivityFileName="{x:Null}" CreateFormActivityFilePath="{x:Null}" Dismissed="{x:Null}" FormFieldsInputData="{x:Null}" FormFieldsOutputData="{x:Null}" FormTitle="{x:Null}" IconPath="{x:Null}" LocalCSSFilePath="{x:Null}" SelectedButton="{x:Null}" TimeoutInSeconds="{x:Null}" WindowPositionLeft="{x:Null}" WindowPositionTop="{x:Null}" sap2010:Annotation.AnnotationText="Opens the Form Designer to capture the users input" CreateFormId="c56f0edc-df2f-458a-9329-85ba7f5cba9d" DisableMaximizeButton="False" DisableMinimizeButton="False" DisableSanitize="False" DisplayName="Startup_Form_Sequence" FormHeight="400" FormSchema="%[{&quot;label&quot;:&quot;Search Terms&quot;,&quot;placeholder&quot;:&quot;Please Enter a Set of Search Terms (no more than 150 characters long)&quot;,&quot;tableView&quot;:true,&quot;validate&quot;:{&quot;minLength&quot;:1,&quot;maxLength&quot;:150},&quot;key&quot;:&quot;searchTerms&quot;,&quot;type&quot;:&quot;textarea&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Email Address&quot;,&quot;placeholder&quot;:&quot;Enter an email address to use in the automation&quot;,&quot;tableView&quot;:true,&quot;validate&quot;:{&quot;required&quot;:true},&quot;key&quot;:&quot;emailAddress&quot;,&quot;type&quot;:&quot;email&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Upload Date&quot;,&quot;widget&quot;:&quot;choicesjs&quot;,&quot;placeholder&quot;:&quot;Choose an Upload Date&quot;,&quot;tableView&quot;:true,&quot;data&quot;:{&quot;values&quot;:[{&quot;label&quot;:&quot;None&quot;,&quot;value&quot;:&quot;None&quot;},{&quot;label&quot;:&quot;Last hour&quot;,&quot;value&quot;:&quot;Last hour&quot;},{&quot;label&quot;:&quot;Today&quot;,&quot;value&quot;:&quot;Today&quot;},{&quot;label&quot;:&quot;This week&quot;,&quot;value&quot;:&quot;This week&quot;},{&quot;label&quot;:&quot;This month&quot;,&quot;value&quot;:&quot;This month&quot;},{&quot;label&quot;:&quot;This year&quot;,&quot;value&quot;:&quot;This year&quot;}]},&quot;validate&quot;:{&quot;required&quot;:true},&quot;key&quot;:&quot;uploadDate&quot;,&quot;type&quot;:&quot;select&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Type&quot;,&quot;widget&quot;:&quot;choicesjs&quot;,&quot;placeholder&quot;:&quot;Choose a Media Type&quot;,&quot;tableView&quot;:true,&quot;data&quot;:{&quot;values&quot;:[{&quot;label&quot;:&quot;None&quot;,&quot;value&quot;:&quot;None&quot;},{&quot;label&quot;:&quot;Video&quot;,&quot;value&quot;:&quot;Video&quot;},{&quot;label&quot;:&quot;Channel&quot;,&quot;value&quot;:&quot;Channel&quot;},{&quot;label&quot;:&quot;Playlist&quot;,&quot;value&quot;:&quot;Playlist&quot;},{&quot;label&quot;:&quot;Movie&quot;,&quot;value&quot;:&quot;Movie&quot;}]},&quot;validate&quot;:{&quot;required&quot;:true},&quot;key&quot;:&quot;type&quot;,&quot;type&quot;:&quot;select&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Duration&quot;,&quot;widget&quot;:&quot;choicesjs&quot;,&quot;placeholder&quot;:&quot;Choose a Duration Length&quot;,&quot;tableView&quot;:true,&quot;data&quot;:{&quot;values&quot;:[{&quot;label&quot;:&quot;None&quot;,&quot;value&quot;:&quot;None&quot;},{&quot;label&quot;:&quot;Under 4 minutes&quot;,&quot;value&quot;:&quot;Under 4 minutes&quot;},{&quot;label&quot;:&quot;4 - 20 minutes&quot;,&quot;value&quot;:&quot;4 - 20 minutes&quot;},{&quot;label&quot;:&quot;Over 20 minutes&quot;,&quot;value&quot;:&quot;Over 20 minutes&quot;}]},&quot;validate&quot;:{&quot;required&quot;:true},&quot;key&quot;:&quot;duration&quot;,&quot;type&quot;:&quot;select&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Features&quot;,&quot;widget&quot;:&quot;choicesjs&quot;,&quot;placeholder&quot;:&quot;Choose a Feature Type&quot;,&quot;tableView&quot;:true,&quot;data&quot;:{&quot;values&quot;:[{&quot;label&quot;:&quot;None&quot;,&quot;value&quot;:&quot;None&quot;},{&quot;label&quot;:&quot;Live&quot;,&quot;value&quot;:&quot;Live&quot;},{&quot;label&quot;:&quot;4K&quot;,&quot;value&quot;:&quot;4K&quot;},{&quot;label&quot;:&quot;HD&quot;,&quot;value&quot;:&quot;HD&quot;},{&quot;label&quot;:&quot;Subtitles/CC&quot;,&quot;value&quot;:&quot;Subtitles/CC&quot;},{&quot;label&quot;:&quot;Creative Commons&quot;,&quot;value&quot;:&quot;Creative Commons&quot;},{&quot;label&quot;:&quot;360°&quot;,&quot;value&quot;:&quot;360°&quot;},{&quot;label&quot;:&quot;HDR&quot;,&quot;value&quot;:&quot;HDR&quot;},{&quot;label&quot;:&quot;Location&quot;,&quot;value&quot;:&quot;Location&quot;},{&quot;label&quot;:&quot;Purchased&quot;,&quot;value&quot;:&quot;Purchased&quot;},{&quot;label&quot;:&quot;VR180&quot;,&quot;value&quot;:&quot;VR180&quot;},{&quot;label&quot;:&quot;3D&quot;,&quot;value&quot;:&quot;3D&quot;}]},&quot;validate&quot;:{&quot;required&quot;:true},&quot;key&quot;:&quot;features&quot;,&quot;type&quot;:&quot;select&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Sort By&quot;,&quot;widget&quot;:&quot;choicesjs&quot;,&quot;placeholder&quot;:&quot;Choose a Property to Sort By&quot;,&quot;tableView&quot;:true,&quot;data&quot;:{&quot;values&quot;:[{&quot;label&quot;:&quot;None&quot;,&quot;value&quot;:&quot;None&quot;},{&quot;label&quot;:&quot;Upload date&quot;,&quot;value&quot;:&quot;Upload date&quot;},{&quot;label&quot;:&quot;View count&quot;,&quot;value&quot;:&quot;View count&quot;},{&quot;label&quot;:&quot;Rating&quot;,&quot;value&quot;:&quot;Rating&quot;}]},&quot;key&quot;:&quot;sortBy&quot;,&quot;type&quot;:&quot;select&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Search Count (How many results do you want to query? Max 100)&quot;,&quot;placeholder&quot;:&quot;1&quot;,&quot;tableView&quot;:false,&quot;delimiter&quot;:false,&quot;requireDecimal&quot;:false,&quot;validate&quot;:{&quot;min&quot;:1,&quot;max&quot;:100},&quot;key&quot;:&quot;searchCount&quot;,&quot;type&quot;:&quot;number&quot;,&quot;input&quot;:true,&quot;defaultValue&quot;:1},{&quot;type&quot;:&quot;button&quot;,&quot;label&quot;:&quot;Submit&quot;,&quot;key&quot;:&quot;submit&quot;,&quot;disableOnInvalid&quot;:true,&quot;input&quot;:true,&quot;tableView&quot;:false}]" FormTheme="{}{&quot;Activities&quot;:[&quot;FORMS&quot;],&quot;Id&quot;:&quot;100120&quot;,&quot;Name&quot;:&quot;Default&quot;,&quot;BaseCss&quot;:&quot;../../assets/css/themes/uipath.bootstrap.min.css&quot;,&quot;ImageSrc&quot;:&quot;../../assets/themeicons/uipath.png&quot;,&quot;OverrideCssUrl&quot;:&quot;../../assets/css/themes/uipath.custom.css&quot;,&quot;UserStyleOverrides&quot;:&quot;&quot;,&quot;Properties&quot;:&quot;&quot;,&quot;IsCustomTheme&quot;:false,&quot;Version&quot;:1,&quot;ThemeVersion&quot;:1}" FormWidth="800" GenerateInputFields="True" sap:VirtualizedContainerService.HintSize="511,628" sap2010:WorkflowViewState.IdRef="FormActivity_1" IsReadOnly="False" MaxColumnsForSchemaGeneration="6" RunDoBlockFirst="False" RunInIsolatedMode="False" StartAsMinimized="False">
+          <ufa:FormActivity.Body>
+            <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+              <Sequence sap2010:Annotation.AnnotationText="Assign variables from Startup Form outputs " DisplayName="Multiple_Assign_Sequence" sap:VirtualizedContainerService.HintSize="473,471" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:MultipleAssign DisplayName="Multiple_Assign_Form_Variables_Sequence" sap:VirtualizedContainerService.HintSize="431,348" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                  <ui:MultipleAssign.AssignOperations>
+                    <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:String">[out_LogFilePath]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:String">[v_LogFilePath]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:String">[out_SearchTerms]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:String">[v_SearchTerms]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:String">[out_Duration]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:String">[v_Duration]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:String">[out_UploadDate]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:String">[v_UploadDate]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:String">[out_Type]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:String">[v_Type]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:String">[out_Features]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:String">[v_Features]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:String">[out_SortBy]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:String">[v_SortBy]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:Int32">[out_SearchCount]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:Int32">[v_SearchCount]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:String">[out_EmailAddress]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:String">[v_EmailAddress]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                    </scg:List>
+                  </ui:MultipleAssign.AssignOperations>
+                </ui:MultipleAssign>
+              </Sequence>
+            </ActivityAction>
+          </ufa:FormActivity.Body>
+          <ufa:FormActivity.DelayBody>
+            <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+              <Delay Duration="00:00:00.2500000" sap2010:WorkflowViewState.IdRef="Delay_1" />
+            </ActivityAction>
+          </ufa:FormActivity.DelayBody>
+          <ufa:FormActivity.FormFieldsCollection>
+            <OutArgument x:TypeArguments="x:String" x:Key="searchTerms">
+              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_SearchTerms" />
+            </OutArgument>
+            <OutArgument x:TypeArguments="x:String" x:Key="uploadDate">
+              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_UploadDate" />
+            </OutArgument>
+            <OutArgument x:TypeArguments="x:String" x:Key="type">
+              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_Type" />
+            </OutArgument>
+            <OutArgument x:TypeArguments="x:String" x:Key="duration">
+              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_Duration" />
+            </OutArgument>
+            <OutArgument x:TypeArguments="x:String" x:Key="features">
+              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_Features" />
+            </OutArgument>
+            <OutArgument x:TypeArguments="x:String" x:Key="sortBy">
+              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_SortBy" />
+            </OutArgument>
+            <OutArgument x:TypeArguments="x:Int32" x:Key="searchCount">
+              <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="v_SearchCount" />
+            </OutArgument>
+            <OutArgument x:TypeArguments="x:String" x:Key="emailAddress">
+              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_EmailAddress" />
+            </OutArgument>
+          </ufa:FormActivity.FormFieldsCollection>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ufa:FormActivity>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="si:InvalidDataException" sap:VirtualizedContainerService.HintSize="515,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="si:InvalidDataException">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="si:InvalidDataException" Name="exception" />
+            </ActivityAction.Argument>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Error" Message="[&quot;Please &quot;]" />
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+      <TryCatch.Finally>
+        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Error" Message="[&quot;System Error: Please check the data entered into the form and rerun the automation.&quot;]" />
+      </TryCatch.Finally>
+    </TryCatch>
+    <ui:BuildDataTable sap2010:Annotation.AnnotationText="Create a Data Table to store Startup Form Fields" DataTable="[v_InputDT]" DisplayName="Build_Startup_Form_DataTable_Activity" sap:VirtualizedContainerService.HintSize="549,90" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Search_Term&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;150&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Email_Address&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Upload_Date&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; default=&quot;50&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Media_Type&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; default=&quot;50&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Search_Duration&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; default=&quot;50&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Search_Features&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; default=&quot;100&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Search_Sort_By&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; default=&quot;25&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Search_Count&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; default=&quot;1&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Report_Path&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; default=&quot;500&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:BuildDataTable>
-    <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="Add Data Row to Startup Form Data Table" ArrayRow="[{v_SearchTerms, v_EmailAddress, v_UploadDate, v_Type, v_Duration, v_Features, v_SortBy, v_SearchCount.ToString, v_LogFilePath}]" DataTable="[v_InputDT]" DisplayName="Add_Data_Row_to_Startup_Form_DataTable_Activity" sap:VirtualizedContainerService.HintSize="511,216" sap2010:WorkflowViewState.IdRef="AddDataRow_1">
+    <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="Add Data Row to Startup Form Data Table" ArrayRow="[{v_SearchTerms, v_EmailAddress, v_UploadDate, v_Type, v_Duration, v_Features, v_SortBy, v_SearchCount.ToString, v_LogFilePath}]" DataTable="[v_InputDT]" DisplayName="Add_Data_Row_to_Startup_Form_DataTable_Activity" sap:VirtualizedContainerService.HintSize="549,216" sap2010:WorkflowViewState.IdRef="AddDataRow_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:AddDataRow>
-    <ui:OutputDataTable sap2010:Annotation.AnnotationText="Convert Startup Form Data Table to String" DataTable="[v_InputDT]" DisplayName="Output_Startup_Form_DataTable_Activity" sap:VirtualizedContainerService.HintSize="511,110" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[v_DToutput]">
+    <ui:OutputDataTable sap2010:Annotation.AnnotationText="Convert Startup Form Data Table to String" DataTable="[v_InputDT]" DisplayName="Output_Startup_Form_DataTable_Activity" sap:VirtualizedContainerService.HintSize="549,110" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[v_DToutput]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:OutputDataTable>
-    <ui:LogMessage sap2010:Annotation.AnnotationText="Log Startup Form Data Table to Console" DisplayName="Log_Startup_Form_DataTable_Activity" sap:VirtualizedContainerService.HintSize="511,122" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[v_DToutput]">
+    <ui:LogMessage sap2010:Annotation.AnnotationText="Log Startup Form Data Table to Console" DisplayName="Log_Startup_Form_DataTable_Activity" sap:VirtualizedContainerService.HintSize="549,122" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[v_DToutput]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <ui:WriteCsvFile Encoding="{x:Null}" AddHeaders="True" sap2010:Annotation.AnnotationText="Write Startup Form Data Table to CSV file" DataTable="[v_InputDT]" Delimitator="Comma" DisplayName="Write_CSV_Startup_Form_DataTable_Activity" FilePath="[v_LogFilePath]" sap:VirtualizedContainerService.HintSize="511,183" sap2010:WorkflowViewState.IdRef="WriteCsvFile_1">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:WriteCsvFile>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="549,322" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+      <TryCatch.Try>
+        <ui:WriteCsvFile Encoding="{x:Null}" AddHeaders="True" sap2010:Annotation.AnnotationText="Write Startup Form Data Table to CSV file" DataTable="[v_InputDT]" Delimitator="Comma" DisplayName="Write_CSV_Startup_Form_DataTable_Activity" FilePath="[v_LogFilePath]" sap:VirtualizedContainerService.HintSize="434,183" sap2010:WorkflowViewState.IdRef="WriteCsvFile_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:WriteCsvFile>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="c:WriterException" sap:VirtualizedContainerService.HintSize="400,160" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="c:WriterException">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="c:WriterException" Name="exception" />
+            </ActivityAction.Argument>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Error" Message="[&quot;Could not write form data to .csv file. Please rerun the automation and validate your inputs into the form. &quot;]" />
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
   </Sequence>
 </Activity>
