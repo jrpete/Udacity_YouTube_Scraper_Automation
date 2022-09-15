@@ -103,7 +103,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:CloseWindow TimeoutMS="{x:Null}" UseWindow="{x:Null}" sap2010:Annotation.AnnotationText="Closes existing Chrome Window" ContinueOnError="True" DisplayName="Close_Existing_Chrome_Window" sap:VirtualizedContainerService.HintSize="1303,137" sap2010:WorkflowViewState.IdRef="CloseWindow_1" InformativeScreenshot="d1169c2b05ddc8e251f7e4dc8b108ae2" Selector="&lt;html app='chrome.exe' omit:title='YouTube' /&gt;" WaitForReady="INTERACTIVE">
+    <ui:CloseWindow UseWindow="{x:Null}" sap2010:Annotation.AnnotationText="Closes existing Chrome Window" ContinueOnError="True" DisplayName="Close_Existing_Chrome_Window" sap:VirtualizedContainerService.HintSize="1303,137" sap2010:WorkflowViewState.IdRef="CloseWindow_1" InformativeScreenshot="d1169c2b05ddc8e251f7e4dc8b108ae2" Selector="&lt;html app='chrome.exe' omit:title='YouTube' /&gt;" TimeoutMS="10000" WaitForReady="INTERACTIVE">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
