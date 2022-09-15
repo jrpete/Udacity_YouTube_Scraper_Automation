@@ -1,4 +1,12 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="868,609.333333333333" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="IO_DTResults" Type="InOutArgument(sd:DataTable)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1425,1778</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -58,9 +66,10 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main_Workflow_Sequence" sap:VirtualizedContainerService.HintSize="421.333333333333,544.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main_Workflow_Sequence" sap:VirtualizedContainerService.HintSize="501,1713" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="v_SearchTerms" />
       <Variable x:TypeArguments="x:String" Name="v_UploadDate" />
@@ -68,48 +77,172 @@
       <Variable x:TypeArguments="x:String" Name="v_Duration" />
       <Variable x:TypeArguments="x:String" Name="v_Features" />
       <Variable x:TypeArguments="x:String" Name="v_SortBy" />
-      <Variable x:TypeArguments="x:String" Name="v_DataPath" />
+      <Variable x:TypeArguments="x:String" Name="v_LogFilePath" />
       <Variable x:TypeArguments="x:Int32" Name="v_SearchCount" />
       <Variable x:TypeArguments="sd:DataTable" Name="v_FormDT" />
+      <Variable x:TypeArguments="x:String" Name="v_Title" />
+      <Variable x:TypeArguments="x:String" Name="v_Creator" />
+      <Variable x:TypeArguments="x:String" Name="v_VerifiedStatus" />
+      <Variable x:TypeArguments="x:String" Name="v_WatchCount" />
+      <Variable x:TypeArguments="x:String" Name="v_Description" />
+      <Variable x:TypeArguments="x:String" Name="v_TagList" />
+      <Variable x:TypeArguments="sd:DataTable" Name="v_ResultsDT" />
+      <Variable x:TypeArguments="x:String" Name="v_DeleteQueueItemsCount" />
+      <Variable x:TypeArguments="x:String" Name="v_SuccessTransactionCount" />
+      <Variable x:TypeArguments="x:String" Name="v_InProgressQueueItemsCount" />
+      <Variable x:TypeArguments="x:String" Name="v_FailQueueItemsCount" />
+      <Variable x:TypeArguments="x:String" Name="v_EmailAddress" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Invoke Enter Form Process Workflow" DisplayName="Invoke Enter_Form_Process workflow" sap:VirtualizedContainerService.HintSize="379.333333333333,144.666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="YouTube_Scraper\Workflows\Enter_Form_Process.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_Features">[v_Features]</OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_Duration">[v_Duration]</OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_SortBy">[v_SortBy]</OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_DataPath">[v_DataPath]</OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_UploadDate">[v_UploadDate]</OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_Type">[v_Type]</OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_SearchTerms">[v_searchTerms]</OutArgument>
-        <OutArgument x:TypeArguments="x:Int32" x:Key="out_SearchCount">[v_SearchCount]</OutArgument>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_FormDT">[v_FormDT]</OutArgument>
-      </ui:InvokeWorkflowFile.Arguments>
+    <TryCatch sap2010:Annotation.AnnotationText="Execute the Main xaml and catcha generic System Exception if the user is unable to run the automation" DisplayName="Try_Main_Sequence" sap:VirtualizedContainerService.HintSize="459,1621" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-    </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Load_YouTube_Process workflow" sap:VirtualizedContainerService.HintSize="379.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="YouTube_Scraper\Workflows\Load_YouTube_Process.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_URL">https://www.youtube.com/</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_SearchTerm">[v_SearchTerms]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_UploadDate">[v_UploadDate]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_Type">[v_Type]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_Duration">[v_Duration]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_Features">[v_Features]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_SortBy">[v_SortBy]</InArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Scrape_Video_Process workflow" sap:VirtualizedContainerService.HintSize="379.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="YouTube_Scraper\Workflows\Scrape_Video_Process.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:Int32" x:Key="in_SearchCount">[v_SearchCount]</InArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
+      <TryCatch.Try>
+        <Sequence DisplayName="Main_Sequence" sap:VirtualizedContainerService.HintSize="421,1352" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Prompts a user to fill out a Startup form with the parameters they  want to include in the YouTube Query&#xA;&#xA;Pre:: None&#xA;Post:  Saves Input Form Parameters to Arguments,&#xA;Creates Log File with Search Inputs" DisplayName="Invoke Enter_Form_Process workflow" sap:VirtualizedContainerService.HintSize="379,214" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="YouTube_Scraper\Workflows\Enter_Form_Process.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_Features">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_Features" />
+              </OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_Duration">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_Duration" />
+              </OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_SortBy">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_SortBy" />
+              </OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_UploadDate">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_UploadDate" />
+              </OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_Type">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_Type" />
+              </OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_SearchTerms">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_searchTerms" />
+              </OutArgument>
+              <OutArgument x:TypeArguments="x:Int32" x:Key="out_SearchCount">
+                <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="v_SearchCount" />
+              </OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_LogFilePath">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_LogFilePath" />
+              </OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_EmailAddress">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_EmailAddress" />
+              </OutArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:InvokeWorkflowFile>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Loads YouTube, inputs Search Terms, Filters Search Results&#xA;&#xA;Pre: Input Form Completed&#xA;Post: Loads YouTube,&#xA;Searches for Keyword&#xA;Filters Results based on User Input" DisplayName="Invoke Load_YouTube_Process workflow" sap:VirtualizedContainerService.HintSize="379,214" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="YouTube_Scraper\Workflows\Load_YouTube_Process.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="in_URL">https://www.youtube.com/</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_SearchTerm">[v_SearchTerms]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_UploadDate">[v_UploadDate]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Type">[v_Type]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Duration">[v_Duration]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Features">[v_Features]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_SortBy">[v_SortBy]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:InvokeWorkflowFile>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Extracts Search Result Title Description, View Count, Creator, Creator Verified Status, and Tags from each search result&#xA;&#xA;Pre: YouTube Loaded, Result Filtered&#xA;Post: Extracts each search result,&#xA;Adds results to DataTable" DisplayName="Invoke Scrape_Video_Process workflow" sap:VirtualizedContainerService.HintSize="379,214" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="YouTube_Scraper\Workflows\Scrape_Results_Process.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:Int32" x:Key="in_SearchCount">[v_SearchCount]</InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_Title">[v_Title]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_Creator">[v_Creator]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_VerifiedStatus">[v_VerifiedStatus]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_WatchCount">[v_WatchCount]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_Description">[v_Description]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_TagList">[v_TagList]</OutArgument>
+              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_ResultsDT">[IO_DTResults]</OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Feature">[v_Features]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:InvokeWorkflowFile>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Adds Extraced Search Result to UiPath Orchestrator Queue, Retrieves Results to confirm that they were successfully posted to Queue.&#xA;&#xA;Pre: Search Results Extracted to DataTable&#xA;Post:  Search Results Posted to Queue as Transactions&#xA;Search Results Retrieved from Queue" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,229" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="YouTube_Scraper\Workflows\Post_Data_To_Orchestrator.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_ResultsDT">[IO_DTResults]</InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_SuccessTransactionCount">[v_SuccessTransactionCount]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_FailQueueItemsCount">[v_FailQueueItemsCount]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_InProgressQueueItemsCount">[v_InProgressQueueItemsCount]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_DeleteQueueItemsCount">[v_DeleteQueueItemsCount]</OutArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:InvokeWorkflowFile>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Creates Search Results Log File, Send email with Input Log file, Search Results Log File, and summary statistics.&#xA;&#xA;Pre: Search results successfully retrieved&#xA;Post: Search Result Log File Created, &#xA;Email sent with Search Result Log File, Input Log File, and Summary Statistics" DisplayName="Invoke Send_Status_Report workflow" sap:VirtualizedContainerService.HintSize="379,229" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="YouTube_Scraper\Workflows\Send_Status_Report.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_ResultsDT">
+                <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="IO_DTResults" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_LogPath">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="v_LogFilePath" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_FailQueueItemsCount">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="v_FailQueueItemsCount" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_DeleteQueueItemsCount">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="v_DeleteQueueItemsCount" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_InProgressQueueItemsCount">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="v_InProgressQueueItemsCount" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_SuccessTransactionCount">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="v_SuccessTransactionCount" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_EmailAddress">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="v_EmailAddress" />
+              </InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:InvokeWorkflowFile>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="425,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[&quot;Unable to Execute Auotmation. Please check your UiPath settings or run the automation in Debug mode to troubleshoot the issue.&quot;]" />
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
   </Sequence>
 </Activity>
