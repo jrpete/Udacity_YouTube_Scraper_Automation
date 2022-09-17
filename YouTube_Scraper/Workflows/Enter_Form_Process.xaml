@@ -13,7 +13,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1273,2510</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1474,2510</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Enter_Form_Process_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -80,7 +80,6 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
       <AssemblyReference>CsvHelper</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Prompts the user to fill out a form to be used as input parameters in the workflows that search and scrape YouTube data" DisplayName="Enter_Form_Process" sap:VirtualizedContainerService.HintSize="604,2445" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -220,27 +219,13 @@
             </ActivityAction>
           </ufa:FormActivity.DelayBody>
           <ufa:FormActivity.FormFieldsCollection>
-            <OutArgument x:TypeArguments="x:String" x:Key="searchTerms">
-              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_SearchTerms" />
-            </OutArgument>
-            <OutArgument x:TypeArguments="x:String" x:Key="uploadDate">
-              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_UploadDate" />
-            </OutArgument>
-            <OutArgument x:TypeArguments="x:String" x:Key="type">
-              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_Type" />
-            </OutArgument>
-            <OutArgument x:TypeArguments="x:String" x:Key="duration">
-              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_Duration" />
-            </OutArgument>
-            <OutArgument x:TypeArguments="x:String" x:Key="features">
-              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_Features" />
-            </OutArgument>
-            <OutArgument x:TypeArguments="x:String" x:Key="sortBy">
-              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="v_SortBy" />
-            </OutArgument>
-            <OutArgument x:TypeArguments="x:Int32" x:Key="searchCount">
-              <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="v_SearchCount" />
-            </OutArgument>
+            <OutArgument x:TypeArguments="x:String" x:Key="searchTerms">[v_SearchTerms]</OutArgument>
+            <OutArgument x:TypeArguments="x:String" x:Key="uploadDate">[v_UploadDate]</OutArgument>
+            <OutArgument x:TypeArguments="x:String" x:Key="type">[v_Type]</OutArgument>
+            <OutArgument x:TypeArguments="x:String" x:Key="duration">[v_Duration]</OutArgument>
+            <OutArgument x:TypeArguments="x:String" x:Key="features">[v_Features]</OutArgument>
+            <OutArgument x:TypeArguments="x:String" x:Key="sortBy">[v_SortBy]</OutArgument>
+            <OutArgument x:TypeArguments="x:Int32" x:Key="searchCount">[v_SearchCount]</OutArgument>
           </ufa:FormActivity.FormFieldsCollection>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
